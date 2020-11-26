@@ -7282,24 +7282,7 @@ html, body, .home-banner {
 
 .home-card, .learn-card {
   background: rgba(0, 0, 0, 0.3);
-  margin: auto;
-  position: relative; }
-
-.learn-card .btn {
-  padding: 1.5em;
-  border-radius: 7px;
-  border: groove; }
-
-.learn-title {
-  position: absolute;
-  width: 100%;
-  top: -1.5em;
-  left: 0; }
-  .learn-title h3 {
-    display: inline;
-    background-color: #505050;
-    border: 2px #f74c8d solid;
-    border-radius: 10px; }
+  margin: auto; }
 
 .learn-banner {
   background-size: cover;
@@ -7316,10 +7299,22 @@ html, body, .home-banner {
 @media only screen and (max-width: 576px) {
   nav.fixed-bottom .nav-item {
     writing-mode: sideways-lr; }
-  .card {
-    background-color: transparent; }
-    .card .btn {
-      border: none; } }
+  .learn-card {
+    background-color: transparent; } }
+
+@media only screen and (min-width: 576px) {
+  .learn-title {
+    position: absolute;
+    width: 100%;
+    top: -1em;
+    left: 0; }
+  .learn-card {
+    padding: 1.5em;
+    border-radius: 7px;
+    border: 3px groove #f74c8d; }
+    .learn-card .btn {
+      display: inline;
+      background-color: #505050; } }
 
 @media only screen and (min-width: 768px) {
   .learn-banner {

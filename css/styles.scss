@@ -17,38 +17,14 @@ html, body, .home-banner {
     background-position: center center;
     box-sizing: border-box;
     background-color: $dark;
-   
 }
 
 // cards on home and learning pages
 .home-card, .learn-card {
     background: $trans-box;
     margin: auto;
-    position: relative;
 }
 
-// links to learning portals
-.learn-card { 
-    .btn {
-        padding: 1.5em;
-        border-radius: 7px;
-        border: groove;
-    }
-}
-// headers on learning portal cards
-.learn-title {
-    position: absolute;
-    width: 100%;
-    top: -1.5em;
-    left: 0;
-    
-    h3 {
-        display: inline;
-        background-color: $dark;
-        border: 2px $accent solid;
-        border-radius: 10px;
-    }
-}
 
 // learning portal background and images
 .learn-banner {
@@ -68,20 +44,42 @@ html, body, .home-banner {
 
 
 
-// responsive main navigation bar
+// for xs vp only
 @media only screen and (max-width:576px) {
+    // responsive main navigation bar 
     nav.fixed-bottom {
         .nav-item {
             writing-mode: sideways-lr;
         }
     }
-    .card {
+
+    .learn-card {
         background-color: transparent;
-        .btn {
-            border:none;
-        }
+        
     }
 }
+
+@media only screen and (min-width:576px) {
+// learning portal cards lose button formatting on sm+ vp
+    .learn-title {
+        position: absolute;
+        width: 100%;
+        top: -1em;
+        left: 0;
+    }
+    .learn-card {
+        padding: 1.5em;
+        border-radius: 7px;
+        border: 3px groove $accent;
+        .btn {
+            display: inline;
+            background-color: $dark;
+    
+            }
+
+    }
+}
+
 
 // responsive learning portal background
 @media only screen and (min-width:768px) {
