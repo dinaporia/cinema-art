@@ -1,0 +1,83 @@
+
+html, body, .home-banner {
+    width: 100%;
+    height: 100%;
+}
+
+/* background of home page with full screen image */
+.home-banner {
+    background-image: url("img/theater.jpg");
+    background-size: cover;
+    background-position: center center;
+    box-sizing: border-box;
+}
+
+
+.card {
+    background: rgba(0, 0, 0, 30%);
+    margin: auto;
+    position: relative;
+}
+
+/* links to learning portals 
+.learn-card {
+    border-radius: 7px;
+}
+*/
+.learn-card .btn {
+    padding: 1.5em;
+    border-radius: 7px;
+    border: groove;
+}
+
+
+
+.history-banner {
+    background-image: url("img/moderntimes.jpg");
+    background-size: cover;
+    background-position: center center;
+    box-sizing: border-box;
+    height: 50%;
+
+}
+.concept-banner {
+    background-image: url("img/daisies.png");
+    background-size: cover;
+    background-position: center center;
+    box-sizing: border-box;
+    height: 50%;
+}
+
+
+.learn-title {
+    position: absolute;
+    width: 100%;
+    top: -1.5em;
+    left: 0;
+}
+
+.learn-title h3 {
+    display: inline;
+    background-color: darkgray;
+    border: 2px white solid;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width:576px) {
+    nav.fixed-bottom .nav-item {
+        writing-mode: sideways-lr;
+    }
+    .card {
+        background-color: transparent;
+ 
+    }
+    .card .btn {
+        border:none;
+    }
+    
+}
+@media only screen and (min-width:768px) {
+.history-banner, .concept-banner {
+    height: 100%;
+}
+}

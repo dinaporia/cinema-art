@@ -1,0 +1,91 @@
+
+// import custom variables and Bootstrap overrides
+@import "custom";
+
+// import Bootstrap 
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+html, body, .home-banner {
+    width: 100%;
+    height: 100%;
+}
+
+/* background of home page with full screen image */
+.home-banner {
+    background-image: url("img/theater.jpg");
+    background-size: cover;
+    background-position: center center;
+    box-sizing: border-box;
+    background-color: $dark;
+   
+}
+
+// cards on home and learning pages
+.home-card, .learn-card {
+    background: $trans-box;
+    margin: auto;
+    position: relative;
+}
+
+// links to learning portals
+.learn-card { 
+    .btn {
+        padding: 1.5em;
+        border-radius: 7px;
+        border: groove;
+    }
+}
+// headers on learning portal cards
+.learn-title {
+    position: absolute;
+    width: 100%;
+    top: -1.5em;
+    left: 0;
+    
+    h3 {
+        display: inline;
+        background-color: $dark;
+        border: 2px $accent solid;
+        border-radius: 10px;
+    }
+}
+
+// learning portal background and images
+.learn-banner {
+    background-size: cover;
+    background-position: center center; 
+    box-sizing: border-box;
+    height: 50%;
+}
+.history {
+    background-image: url("img/moderntimes.jpg");
+
+}
+.concept {
+    background-image: url("img/daisies.png");
+    
+}
+
+
+
+// responsive main navigation bar
+@media only screen and (max-width:576px) {
+    nav.fixed-bottom {
+        .nav-item {
+            writing-mode: sideways-lr;
+        }
+    }
+    .card {
+        background-color: transparent;
+        .btn {
+            border:none;
+        }
+    }
+}
+
+// responsive learning portal background
+@media only screen and (min-width:768px) {
+    .learn-banner {
+        height: 100%;
+    }
+}

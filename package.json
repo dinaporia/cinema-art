@@ -5,8 +5,11 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run lite",
-    "lite": "lite-server"
+    "start": "npm run watch:all",
+    "lite": "lite-server",
+    "scss": "node-sass -o css/ css/",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
   },
   "repository": {
     "type": "git"
@@ -14,6 +17,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "lite-server": "^2.5.4"
+    "lite-server": "^2.5.4",
+    "node-sass": "^5.0.0",
+    "onchange": "^7.0.0",
+    "parallelshell": "^3.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3"
   }
 }
