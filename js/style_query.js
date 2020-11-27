@@ -1,6 +1,7 @@
 $(function() {
     function addCardShadow(x) {
-        if (x.matches) { // If media query matches
+        if (x.matches) { 
+            // If media query matches, add shadow and border effects on hover
             $(".learn-card").css("background-color", "rgba(0, 0, 0, 0.3)"),
             $(".learn-card").on({
                 mouseenter: function(){
@@ -15,18 +16,17 @@ $(function() {
                     }
                 });
             } else {
+            // for xs vp, remove event handlers and restore previous settings
                 $(".learn-card").off("mouseenter mouseleave"),
                 $(".learn-card").css("background-color", "transparent");     
             }
     };
-    // check media screen 
+    // check media screen for sm and larger vp
     mql = window.matchMedia("screen and (min-width: 576px)");
     // Call function to add responsive card formatting
     addCardShadow(mql); 
-    //add event listener for window resize
+    //add event listener to re-run function at window resize
     window.addEventListener("resize", function(){ 
         addCardShadow(mql); 
         });
-
-    
 });

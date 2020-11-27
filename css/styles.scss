@@ -23,6 +23,7 @@ html, body, .home-banner {
 .home-card, .learn-card {
     background: $trans-box;
     margin: auto;
+
 }
 
 
@@ -38,21 +39,54 @@ html, body, .home-banner {
 
 }
 .concept {
-    background-image: url("img/daisies.png");
-    
+    background-image: url("img/daisies.png");  
 }
 
+.image-overlay {
+    position: relative;
+    h3 {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 3px $dark;
+        font-variant: small-caps;
+    }
+}
 
+.module-card {
+    // make cards equal height while compensating for 0 margins
+    height: 95%;
+
+    .card-footer { 
+    // override stretched-link in footer to enable navbar hover effect
+    z-index: 10;     
+    } 
+   
+    // add responsive styling and hover effects to navbar
+    .nav-link {
+        border-bottom: 1px solid $primary;
+        border-right: none; 
+        &:hover {            
+            background-color: $primary;
+            color: $secondary;
+        }
+    }
+    .nav-link:last-child {
+        border: none;
+        }   
+}
 
 // for xs vp only
 @media only screen and (max-width:576px) {
-    // responsive main navigation bar 
+// main navigation bar changes writing direction to fit
     nav.fixed-bottom {
         .nav-item {
             writing-mode: sideways-lr;
         }
     }
-
+// learning portal cards are transparent since content is d-none
     .learn-card {
         background-color: transparent;
         
@@ -68,20 +102,29 @@ html, body, .home-banner {
         left: 0;
     }
     .learn-card {
-        padding: 1.5em;
+        padding: 1em;
         border-radius: 7px;
         border: 3px groove $accent;
         .btn {
             display: inline;
             background-color: $dark;
-    
             }
+        .card-body {
+            padding: 1em;
+        }
+    }
 
+    .module-card {
+        .nav-link {
+            border-right: 1px solid $primary;
+            border-bottom: none;
+        }
+        
     }
 }
 
 
-// responsive learning portal background
+// learning portal background takes up full height in md+ vps
 @media only screen and (min-width:768px) {
     .learn-banner {
         height: 100%;

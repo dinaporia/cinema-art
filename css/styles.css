@@ -7296,6 +7296,30 @@ html, body, .home-banner {
 .concept {
   background-image: url("img/daisies.png"); }
 
+.image-overlay {
+  position: relative; }
+  .image-overlay h3 {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 3px #505050;
+    font-variant: small-caps; }
+
+.module-card {
+  height: 95%; }
+  .module-card .card-footer {
+    z-index: 10; }
+  .module-card .nav-link {
+    border-bottom: 1px solid #589ccb;
+    border-right: none; }
+    .module-card .nav-link:hover {
+      background-color: #589ccb;
+      color: #ffb0a3; }
+  .module-card .nav-link:last-child {
+    border: none; }
+
 @media only screen and (max-width: 576px) {
   nav.fixed-bottom .nav-item {
     writing-mode: sideways-lr; }
@@ -7309,12 +7333,17 @@ html, body, .home-banner {
     top: -1em;
     left: 0; }
   .learn-card {
-    padding: 1.5em;
+    padding: 1em;
     border-radius: 7px;
     border: 3px groove #f74c8d; }
     .learn-card .btn {
       display: inline;
-      background-color: #505050; } }
+      background-color: #505050; }
+    .learn-card .card-body {
+      padding: 1em; }
+  .module-card .nav-link {
+    border-right: 1px solid #589ccb;
+    border-bottom: none; } }
 
 @media only screen and (min-width: 768px) {
   .learn-banner {
