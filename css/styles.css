@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;400&display=swap");
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -7270,7 +7273,8 @@ a.text-accent:hover, a.text-accent:focus {
 
 html, body, .home-banner {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  font-family: "Roboto", sans-serif; }
 
 /* background of home page with full screen image */
 .home-banner {
@@ -7283,6 +7287,9 @@ html, body, .home-banner {
 .home-card, .learn-card {
   background: rgba(0, 0, 0, 0.3);
   margin: auto; }
+  .home-card .card-title, .learn-card .card-title {
+    font-family: "Londrina Solid", cursive;
+    font-size: 4em; }
 
 .learn-banner {
   background-size: cover;
@@ -7304,8 +7311,10 @@ html, body, .home-banner {
     width: 100%;
     text-align: center;
     color: white;
+    font-family: "Londrina Shadow", cursive;
     text-shadow: 2px 2px 3px #1f2c30;
-    font-variant: small-caps; }
+    font-variant: small-caps;
+    font-size: 4em; }
 
 .module-card {
   height: 95%; }
@@ -7314,6 +7323,8 @@ html, body, .home-banner {
   .module-card .nav-link {
     border-bottom: 1px solid #1f2c30;
     border-right: none;
+    font-family: "Londrina Solid", cursive;
+    font-size: 1.25em;
     color: #1f2c30; }
     .module-card .nav-link:hover {
       background-color: #fdce61;
