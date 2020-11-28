@@ -1,11 +1,13 @@
-$primary: #589ccb;
+$primary: #1178a9;
 $accent: #f74c8d;
-$secondary: #ffb0a3;
-$dark: #505050;
+$secondary: #ffa693;
+$dark:#1f2c30;
+$light: #fdce61;
 $trans-box: rgba(0, 0, 0, 0.3);
 
 $theme-colors: (
     "secondary": $secondary,
     "accent": $accent,
-    "dark": $dark
+    "dark": $dark,
+    "light": $light
 );

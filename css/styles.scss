@@ -27,6 +27,7 @@ html, body, .home-banner {
 }
 
 
+
 // learning portal background and images
 .learn-banner {
     background-size: cover;
@@ -58,19 +59,18 @@ html, body, .home-banner {
 .module-card {
     // make cards equal height while compensating for 0 margins
     height: 95%;
-
     .card-footer { 
     // override stretched-link in footer to enable navbar hover effect
     z-index: 10;     
     } 
-   
     // add responsive styling and hover effects to navbar
     .nav-link {
-        border-bottom: 1px solid $primary;
+        border-bottom: 1px solid $dark;
         border-right: none; 
+        color: $dark;
         &:hover {            
-            background-color: $primary;
-            color: $secondary;
+            background-color: $light;
+            color: $dark;
         }
     }
     .nav-link:last-child {
@@ -104,10 +104,11 @@ html, body, .home-banner {
     .learn-card {
         padding: 1em;
         border-radius: 7px;
-        border: 3px groove $accent;
+        border: 3px groove $light;
         .btn {
             display: inline;
             background-color: $dark;
+            color: white;
             }
         .card-body {
             padding: 1em;
@@ -116,7 +117,7 @@ html, body, .home-banner {
 
     .module-card {
         .nav-link {
-            border-right: 1px solid $primary;
+            border-right: 1px solid $dark;
             border-bottom: none;
         }
         
