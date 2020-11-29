@@ -11,7 +11,39 @@ html, body, .home-banner {
     font-family: $font-stack;
 }
 
+header {
+    height: 150px;
+}
 
+.units {
+    width: 75%;
+}
+.home {
+    height: 150px;
+}
+.navbar-column {
+    height: 100vh;
+    position: sticky;
+    left: 0;
+    top: 0;
+    max-width: 120px;
+    .nav {
+        background-color: $dark;
+        .nav-link {
+            color: $light;            
+            
+            &:not(.active){
+                &:hover {
+                    color: $primary;
+                    background-color: $light;
+                }
+            }
+            &.active {
+                background-color: $primary;
+            }
+        }
+    }
+}
 /* background of home page with full screen image */
 .home-banner {
     background-image: url("img/theater.jpg");
@@ -59,7 +91,7 @@ html, body, .home-banner {
         font-family: $display-font-shadow;
         text-shadow: 2px 2px 3px $dark;
         font-variant: small-caps;
-        font-size: 4em;
+        font-size: 3em;
     }
 }
 

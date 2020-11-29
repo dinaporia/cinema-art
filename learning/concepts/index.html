@@ -15,33 +15,32 @@
 </head>
 
 <body>
-     <!-- sticky header -->
-     <header class="my-0 py-3 sticky-top text-center bg-dark text-secondary">
-        <h1 class="display-3 text-light">Film Concepts</h1>
-        <p>Some text summarizing this page</p>
-    </header>
+    
     <!-- BS grid -->
     <div class="container-fluid pl-0">
-        <div class="row ">
+        <div class="row h-100">
             <!-- left column contains responsive navigation bar that collapses on smaller vp -->
-            <div class="col col-2 col-sm-3 h-100">
-                <nav class="navbar navbar-expand-sm bg-primary">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#concepts-menu"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="concepts-menu">
-                    <ul class="navbar-nav flex-column">
-                        <li class="nav-item"><a href="#" class="nav-link">Concepts</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Concepts</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Concepts</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Concepts</a></li>
-                        
-                    </ul>
+            
+            <div class="col-3 col-md-2 navbar-column px-0">
+                <div class="home">image</div>
+                <div class="nav flex-column nav-tabs h-100">
+                    <a class="d-flex align-items-center nav-link flex-fill active" href="#">Film Concepts</a>
+                    <a class="d-flex align-items-center nav-link flex-fill" href="../history/index.html">Film History</a>
+                    <a class="d-flex align-items-center nav-link flex-fill" href="../../resources/index.html">Additional Resources</a>
+                    <a class="d-flex align-items-center nav-link flex-fill" href="lessons.html">Begin!</a>
                 </div>
-                </nav>
+                
             </div>
             <!-- right column contains the learning content -->
-            <div class="col">
+            <div class="col pr-0">
+                 <!-- sticky header -->
+     <header class="my-0 py-3 sticky-top text-center bg-dark text-secondary">
+        <h1 class="text-light">Film Concepts</h1>
+        <p>Some text summarizing this page</p>
+    </header>
                 <!-- nested grid to organize card links to content -->
-                <div class="row">
+                <div class="row mx-3 mx-lg-4 py-2">
+                    
                     <!-- responsive cards stack on xs and sm, two per row on md and lg, three per row on xl vp -->
                     <div class="col-md-6 col-xl-4">
                         <div class="card module-card my-2">
@@ -160,6 +159,7 @@
                             </div>
                         </div>
                     </div>
+                
                 </div>
             </div>
         </div>

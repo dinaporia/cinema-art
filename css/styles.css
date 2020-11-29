@@ -7276,6 +7276,31 @@ html, body, .home-banner {
   height: 100%;
   font-family: "Roboto", sans-serif; }
 
+header {
+  height: 150px; }
+
+.units {
+  width: 75%; }
+
+.home {
+  height: 150px; }
+
+.navbar-column {
+  height: 100vh;
+  position: sticky;
+  left: 0;
+  top: 0;
+  width: 120px; }
+  .navbar-column .nav {
+    background-color: #1f2c30; }
+    .navbar-column .nav .nav-link {
+      color: #fdce61; }
+      .navbar-column .nav .nav-link:not(.active):hover {
+        color: #1178a9;
+        background-color: #fdce61; }
+      .navbar-column .nav .nav-link.active {
+        background-color: #1178a9; }
+
 /* background of home page with full screen image */
 .home-banner {
   background-image: url("img/theater.jpg");
@@ -7314,7 +7339,7 @@ html, body, .home-banner {
     font-family: "Londrina Shadow", cursive;
     text-shadow: 2px 2px 3px #1f2c30;
     font-variant: small-caps;
-    font-size: 4em; }
+    font-size: 3em; }
 
 .module-card {
   height: 95%; }
