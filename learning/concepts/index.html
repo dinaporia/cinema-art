@@ -8,40 +8,44 @@
 
 <!-- Custom stylesheets-->
     <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css"/>
-    
     <link rel="stylesheet" href="../../css/styles.css">
 
     <title>Film Art Website</title>
 </head>
 
 <body>
-    
     <!-- BS grid -->
     <div class="container-fluid pl-0">
         <div class="row h-100">
+
             <!-- left column contains responsive navigation bar  -->
-            
-            <div class="col-2 navbar-column px-0">
-                <div class="d-flex h-100 flex-column">
-                <a href="../../index.html" class="home btn btn-dark text-center"><i class="fa fa-home fa-5x"></i></a>
-                <div class="nav flex-column nav-tabs flex-grow-1">
-                    <a class="d-flex align-items-center nav-link flex-fill active" href="#">Film Concepts</a>
-                    <a class="d-flex align-items-center nav-link flex-fill" href="../history/index.html">Film History</a>
-                    <a class="d-flex align-items-center nav-link flex-fill" href="../../resources/index.html">Additional Resources</a>
-                    <a class="d-flex align-items-center nav-link flex-fill" href="lessons.html">Begin!</a>
-                </div>
+            <div class="col-1 col-md-2 navbar-column px-0"> 
+                <!-- sidebar navigation collapses on smaller screens -->
+                <nav class="h-100 flex-column navbar navbar-expand-md p-0">
+                    <!-- main-menu div toggles between home button link and hamburger menu depending on vp -->
+                    <div class="main-menu">
+                        <a href="../../index.html" class="home d-none d-md-block btn btn-dark "><i class="fa fa-home"></i></a>
+                        <button class="navbar-toggler home" type="button" data-toggle="collapse" data-target="#sidebar"><span class="fa fa-bars"></button>
+                    </div>
+                    <div class="flex-column nav-tabs align-items-stretch collapse navbar-collapse" id="sidebar">
+                        <a class="d-flex align-items-center nav-link flex-fill active" href="#">Film Concepts</a>
+                        <a class="d-flex align-items-center nav-link flex-fill" href="../history/index.html">Film History</a>
+                        <a class="d-flex align-items-center nav-link flex-fill" href="../../resources/index.html">Additional Resources</a>
+                        <a class="d-flex align-items-center nav-link flex-fill" href="lessons.html">Begin!</a>
+                    </div>
+                </nav>
             </div>
-            </div>
+
             <!-- right column contains the learning content -->
             <div class="col pr-0">
                  <!-- sticky header -->
-     <header class="mb-2 py-3 sticky-top text-center bg-dark text-secondary">
-        <h1 class="text-light">Film Concepts</h1>
-        <p>Some text summarizing this page</p>
-    </header>
+                <header class="mb-2 py-3 sticky-top text-center bg-dark text-secondary">
+                    <h1 class="text-light">Film Concepts</h1>
+                    <p>Some text summarizing this page</p>
+                </header>
+
                 <!-- nested grid to organize card links to content -->
-                <div class="row mx-3 mx-lg-4 py-2">
-                    
+                <div class="row mx-3 mx-lg-4 py-2">                    
                     <!-- responsive cards stack on xs and sm, two per row on md and lg, three per row on xl vp -->
                     <div class="col-md-6 col-xl-4 py-3">
                         <div class="card module-card">
@@ -159,33 +163,34 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                
+                    </div>                
                 </div>
+
             </div>
+
         </div>
     </div>
   
     
-<!-- modal opens for links that lead to content that doesn't exist -->
-<div class="modal fade" id="idealWorldModal" tabindex="-1" aria-labelledby="idealWorldLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-secondary">
-                <h5 class="modal-title" id="idealWorldLabel">Alas...</h5>
-                <!-- close button -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <p>In an ideal world, each lesson would have games to play and quizzes to take. Unfortunately, we live in this world. Would you like to play the games that are available instead?</p>
-            </div>
-            <div class="modal-footer">              
-                <a role="button" class="btn mr-auto btn-primary btn-outline-secondary text-white" href="games.html">Hell yeah!</a>
-                <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" data-dismiss="modal">Nah.</button>                
+    <!-- modal opens for links that lead to content that doesn't exist -->
+    <div class="modal fade" id="idealWorldModal" tabindex="-1" aria-labelledby="idealWorldLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <h5 class="modal-title" id="idealWorldLabel">Alas...</h5>
+                    <!-- close button -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>In an ideal world, each lesson would have games to play and quizzes to take. Unfortunately, we live in this world. Would you like to play the games that are available instead?</p>
+                </div>
+                <div class="modal-footer">              
+                    <a role="button" class="btn mr-auto btn-primary btn-outline-secondary text-white" href="games.html">Hell yeah!</a>
+                    <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" data-dismiss="modal">Nah.</button>                
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 

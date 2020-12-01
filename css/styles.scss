@@ -23,13 +23,25 @@ header {
 }
 
 // logo image leading to homepage inside learning module
-.home {
+.main-menu {
     height: 150px;
-    .fa-home {
-        line-height: 150px;
-    }
+    width: 100%;
     background-color: $dark;
-    color: $secondary;
+    .home {
+        height: 100%;
+        font-size: 7vw;
+        padding: 0;
+        .fa {
+            line-height: 150px;
+            color: $secondary;
+        }
+        &.btn {
+            border-radius: 0;
+        }
+        
+      
+    }
+    
 }
 
 // sidebar navigation for learning module
@@ -38,8 +50,9 @@ header {
     position: sticky;
     left: 0;
     top: 0;
-    .nav {
+    .navbar-collapse {
         background-color: $dark;
+        width: 100%;
         .nav-link {
             color: $light;   
             font-size: 1.1em;
@@ -97,6 +110,7 @@ header {
 .module-card {
     // make cards equal height while compensating for 0 margins
     height: 95%;
+    box-shadow: 1px 1px 4px 2px $primary, 3px 3px 5px $secondary;
 
     // position and style header over image
     .image-overlay {
@@ -115,7 +129,7 @@ header {
     }
     // override stretched-link in footer to enable navbar hover effect
     .card-footer { 
-    z-index: 10;     
+    z-index: 1;     
     } 
     // add responsive styling and hover effects to card footer
     .nav-link {
@@ -178,6 +192,7 @@ header {
         }
         
     }
+  
 }
 
 
@@ -186,4 +201,34 @@ header {
     .learn-banner {
         height: 100%;
     }
+   
+ 
+}
+
+@media only screen and (max-width:768px) {
+    .main-menu {
+        button {
+     display: block;
+     margin: auto;
+        }
+     }
+     .navbar-column {
+        z-index: 10;
+        
+     }
+     .navbar {
+        position: relative;
+        flex-wrap: nowrap;
+     }
+
+     // preserve sidebar formatting when shown in smaller vp
+    .navbar-collapse {    
+        &.show {
+        width: max-content;
+        position: relative;
+        margin-left: auto;  
+        display: flex;
+        }
+    }
+    
 }

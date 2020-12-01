@@ -7283,27 +7283,35 @@ header {
 .units {
   width: 75%; }
 
-.home {
+.main-menu {
   height: 150px;
-  background-color: #1f2c30;
-  color: #ffa693; }
-  .home .fa-home {
-    line-height: 150px; }
+  width: 100%;
+  background-color: #1f2c30; }
+  .main-menu .home {
+    height: 100%;
+    font-size: 7vw;
+    padding: 0; }
+    .main-menu .home .fa {
+      line-height: 150px;
+      color: #ffa693; }
+    .main-menu .home.btn {
+      border-radius: 0; }
 
 .navbar-column {
   height: 100vh;
   position: sticky;
   left: 0;
   top: 0; }
-  .navbar-column .nav {
-    background-color: #1f2c30; }
-    .navbar-column .nav .nav-link {
+  .navbar-column .navbar-collapse {
+    background-color: #1f2c30;
+    width: 100%; }
+    .navbar-column .navbar-collapse .nav-link {
       color: #fdce61;
       font-size: 1.1em; }
-      .navbar-column .nav .nav-link:not(.active):hover {
+      .navbar-column .navbar-collapse .nav-link:not(.active):hover {
         color: #1178a9;
         background-color: #fdce61; }
-      .navbar-column .nav .nav-link.active {
+      .navbar-column .navbar-collapse .nav-link.active {
         background-color: #1178a9; }
 
 /* background of home page with full screen image */
@@ -7334,7 +7342,8 @@ header {
   background-image: url("img/daisies.png"); }
 
 .module-card {
-  height: 95%; }
+  height: 95%;
+  box-shadow: 1px 1px 4px 2px #1178a9, 3px 3px 5px #ffa693; }
   .module-card .image-overlay {
     position: relative; }
     .module-card .image-overlay h3 {
@@ -7348,7 +7357,7 @@ header {
       font-variant: small-caps;
       font-size: 3em; }
   .module-card .card-footer {
-    z-index: 10; }
+    z-index: 1; }
   .module-card .nav-link {
     border-bottom: 1px solid #1f2c30;
     border-right: none;
@@ -7390,3 +7399,18 @@ header {
 @media only screen and (min-width: 768px) {
   .learn-banner {
     height: 100%; } }
+
+@media only screen and (max-width: 768px) {
+  .main-menu button {
+    display: block;
+    margin: auto; }
+  .navbar-column {
+    z-index: 10; }
+  .navbar {
+    position: relative;
+    flex-wrap: nowrap; }
+  .navbar-collapse.show {
+    width: max-content;
+    position: relative;
+    margin-left: auto;
+    display: flex; } }
