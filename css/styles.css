@@ -7277,24 +7277,29 @@ html, body, .home-banner {
   font-family: "Roboto", sans-serif; }
 
 header {
-  height: 150px; }
+  height: 150px;
+  font-size: 1.2em; }
 
 .units {
   width: 75%; }
 
 .home {
-  height: 150px; }
+  height: 150px;
+  background-color: #1f2c30;
+  color: #ffa693; }
+  .home .fa-home {
+    line-height: 150px; }
 
 .navbar-column {
   height: 100vh;
   position: sticky;
   left: 0;
-  top: 0;
-  width: 120px; }
+  top: 0; }
   .navbar-column .nav {
     background-color: #1f2c30; }
     .navbar-column .nav .nav-link {
-      color: #fdce61; }
+      color: #fdce61;
+      font-size: 1.1em; }
       .navbar-column .nav .nav-link:not(.active):hover {
         color: #1178a9;
         background-color: #fdce61; }
@@ -7328,21 +7333,20 @@ header {
 .concept {
   background-image: url("img/daisies.png"); }
 
-.image-overlay {
-  position: relative; }
-  .image-overlay h3 {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-family: "Londrina Shadow", cursive;
-    text-shadow: 2px 2px 3px #1f2c30;
-    font-variant: small-caps;
-    font-size: 3em; }
-
 .module-card {
   height: 95%; }
+  .module-card .image-overlay {
+    position: relative; }
+    .module-card .image-overlay h3 {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-family: "Londrina Shadow", cursive;
+      text-shadow: 2px 2px 3px #1f2c30;
+      font-variant: small-caps;
+      font-size: 3em; }
   .module-card .card-footer {
     z-index: 10; }
   .module-card .nav-link {

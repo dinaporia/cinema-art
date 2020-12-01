@@ -11,26 +11,38 @@ html, body, .home-banner {
     font-family: $font-stack;
 }
 
+// learning module header
 header {
     height: 150px;
+    font-size: 1.2em;
 }
 
+// learning module content pane
 .units {
     width: 75%;
 }
+
+// logo image leading to homepage inside learning module
 .home {
     height: 150px;
+    .fa-home {
+        line-height: 150px;
+    }
+    background-color: $dark;
+    color: $secondary;
 }
+
+// sidebar navigation for learning module
 .navbar-column {
     height: 100vh;
     position: sticky;
     left: 0;
     top: 0;
-    max-width: 120px;
     .nav {
         background-color: $dark;
         .nav-link {
-            color: $light;            
+            color: $light;   
+            font-size: 1.1em;
             
             &:not(.active){
                 &:hover {
@@ -80,29 +92,32 @@ header {
 
 
 
-.image-overlay {
-    position: relative;
-    h3 {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        text-align: center;
-        color: white;
-        font-family: $display-font-shadow;
-        text-shadow: 2px 2px 3px $dark;
-        font-variant: small-caps;
-        font-size: 3em;
-    }
-}
+
 
 .module-card {
     // make cards equal height while compensating for 0 margins
     height: 95%;
-    .card-footer { 
+
+    // position and style header over image
+    .image-overlay {
+        position: relative;
+        h3 {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-family: $display-font-shadow;
+            text-shadow: 2px 2px 3px $dark;
+            font-variant: small-caps;
+            font-size: 3em;
+        }
+    }
     // override stretched-link in footer to enable navbar hover effect
+    .card-footer { 
     z-index: 10;     
     } 
-    // add responsive styling and hover effects to navbar
+    // add responsive styling and hover effects to card footer
     .nav-link {
         border-bottom: 1px solid $dark;
         border-right: none; 
