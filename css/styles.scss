@@ -19,7 +19,14 @@ header {
 
 // learning module content pane
 .units {
-    width: 75%;
+    .nav-link{
+        color: $dark;
+        font-size: 0.8em;
+        &.active {
+            background-color: $secondary;
+            color: $dark;
+        }
+    }
 }
 
 // logo image leading to homepage inside learning module
@@ -27,6 +34,7 @@ header {
     height: 150px;
     width: 100%;
     background-color: $dark;
+    // home and menu buttons
     .home {
         height: 100%;
         font-size: 7vw;
@@ -38,10 +46,7 @@ header {
         &.btn {
             border-radius: 0;
         }
-        
-      
     }
-    
 }
 
 // sidebar navigation for learning module
@@ -56,7 +61,6 @@ header {
         .nav-link {
             color: $light;   
             font-size: 1.1em;
-            
             &:not(.active){
                 &:hover {
                     color: $primary;
@@ -69,6 +73,7 @@ header {
         }
     }
 }
+
 /* background of home page with full screen image */
 .home-banner {
     background-image: url("img/theater.jpg");
@@ -105,13 +110,12 @@ header {
 
 
 
-
-
+// learning module cards
 .module-card {
     // make cards equal height while compensating for 0 margins
     height: 95%;
-    box-shadow: 1px 1px 4px 2px $primary, 3px 3px 5px $secondary;
 
+    box-shadow: 1px 1px 4px 2px $primary, 3px 3px 5px $secondary;
     // position and style header over image
     .image-overlay {
         position: relative;
@@ -127,11 +131,11 @@ header {
             font-size: 3em;
         }
     }
-    // override stretched-link in footer to enable navbar hover effect
+    // override stretched-link in footer
     .card-footer { 
-    z-index: 1;     
-    } 
-    // add responsive styling and hover effects to card footer
+        z-index: 1;     
+        } 
+    // add responsive styling and hover effects to navigation
     .nav-link {
         border-bottom: 1px solid $dark;
         border-right: none; 
@@ -143,28 +147,63 @@ header {
             color: $dark;
         }
     }
+    // remove border effect on last link to preserve formatting
     .nav-link:last-child {
         border: none;
         }   
 }
 
+.content-image {
+    padding: 3px;
+    border: 1px solid $dark;
+    width: 40%;
+    min-width: 250px;
+    max-width: 350px;
+
+    
+}
+
+.units-content {
+    dt {
+        color: $primary;
+    }
+    dd {
+        padding-left: 10px;
+    }
+    span {
+        color: $accent;
+        font-weight: bold; 
+    }
+    section {
+        padding: 25px;
+        margin-bottom: 15px;
+        border: 1px solid $dark;
+    }
+}
+
+
 // for xs vp only
 @media only screen and (max-width:576px) {
-// main navigation bar changes writing direction to fit
+    // main navigation bar changes writing direction to fit
     nav.fixed-bottom {
         .nav-item {
             writing-mode: sideways-lr;
         }
     }
-// learning portal cards are transparent since content is d-none
+// learning portal cards are transparent since content is hidden
     .learn-card {
         background-color: transparent;
-        
     }
-}
+// units navigation is hidden
+    .units {
+        display: none;
+    }
 
+}
+// for sm+ vp
 @media only screen and (min-width:576px) {
-// learning portal cards lose button formatting on sm+ vp
+    // learning portal card appearance 
+    // the title is offset to overlap border of card
     .learn-title {
         position: absolute;
         width: 100%;
@@ -184,51 +223,66 @@ header {
             padding: 1em;
         }
     }
-
+    // learning module card borders adapted to stacked positioning
     .module-card {
         .nav-link {
             border-right: 1px solid $dark;
             border-bottom: none;
         }
-        
     }
-  
 }
 
-
-// learning portal background takes up full height in md+ vps
+// for md+ vps
 @media only screen and (min-width:768px) {
+    // learning portal background takes up full height
     .learn-banner {
         height: 100%;
     }
-   
- 
+
+    .units {
+        .nav-link{
+            font-size: 1em;
+        
+        }
+    }
 }
 
+// for xs and sm vps only
 @media only screen and (max-width:768px) {
+    // hamburger menu button takes the place of the home button
     .main-menu {
         button {
-     display: block;
-     margin: auto;
-        }
-     }
-     .navbar-column {
-        z-index: 10;
-        
-     }
-     .navbar {
-        position: relative;
-        flex-wrap: nowrap;
-     }
-
-     // preserve sidebar formatting when shown in smaller vp
-    .navbar-collapse {    
-        &.show {
-        width: max-content;
-        position: relative;
-        margin-left: auto;  
-        display: flex;
+            display: block;
+            margin: auto;
         }
     }
     
+     .navbar-column {
+         // sidebar appears on top of other content
+        z-index: 10;    
+        // override BS navbar styling
+        .navbar {
+            position: relative;
+            flex-wrap: nowrap;
+        }
+        // preserve sidebar formatting when it appears
+        .navbar-collapse {    
+            &.show {
+            width: max-content;
+            position: relative;
+            margin-left: auto;  
+            display: flex;
+            }
+        }
+    }
+    // center card and content panels when sidebar is hidden
+    .content-panel {
+        position: relative;
+        width: 100%;
+        left: -1.7em;
+    }
+    .card-panel {
+        position: relative;
+        left: -2em;
+    }
 }

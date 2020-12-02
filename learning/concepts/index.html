@@ -27,6 +27,7 @@
                         <a href="../../index.html" class="home d-none d-md-block btn btn-dark "><i class="fa fa-home"></i></a>
                         <button class="navbar-toggler home" type="button" data-toggle="collapse" data-target="#sidebar"><span class="fa fa-bars"></button>
                     </div>
+                    <!-- sidebar content stretches across full height of screen, uses BS tab hover effects -->
                     <div class="flex-column nav-tabs align-items-stretch collapse navbar-collapse" id="sidebar">
                         <a class="d-flex align-items-center nav-link flex-fill active" href="#">Film Concepts</a>
                         <a class="d-flex align-items-center nav-link flex-fill" href="../history/index.html">Film History</a>
@@ -36,16 +37,16 @@
                 </nav>
             </div>
 
-            <!-- right column contains the learning content -->
+            <!-- right column contains header and learning content -->
             <div class="col pr-0">
                  <!-- sticky header -->
-                <header class="mb-2 py-3 sticky-top text-center bg-dark text-secondary">
+                <header class="mb-2 py-3 sticky-top text-center bg-dark text-white">
                     <h1 class="text-light">Film Concepts</h1>
                     <p>Some text summarizing this page</p>
                 </header>
 
-                <!-- nested grid to organize card links to content -->
-                <div class="row mx-3 mx-lg-4 py-2">                    
+                <!-- nested grid to organize links to content -->
+                <div class="row mx-3 mx-lg-4 py-2 card-panel">                    
                     <!-- responsive cards stack on xs and sm, two per row on md and lg, three per row on xl vp -->
                     <div class="col-md-6 col-xl-4 py-3">
                         <div class="card module-card">
@@ -63,6 +64,7 @@
                             <div class="card-footer bg-secondary  p-0">
                                 <nav class="nav nav-justified flex-column flex-sm-row">
                                     <a href="lessons.html#intro" class="nav-link p-3">Learn</a>
+                                    <!-- Play and Test links activate modal -->
                                     <a role="button" data-toggle="modal" data-target="#idealWorldModal" class="nav-link p-3">Play</a>
                                     <a role="button" data-toggle="modal" data-target="#idealWorldModal" class="nav-link p-3">Test</a>
                                 </ul>
@@ -171,8 +173,7 @@
         </div>
     </div>
   
-    
-    <!-- modal opens for links that lead to content that doesn't exist -->
+    <!-- modal opens informing user that content that doesn't exist -->
     <div class="modal fade" id="idealWorldModal" tabindex="-1" aria-labelledby="idealWorldLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -184,8 +185,10 @@
                 <div class="modal-body">
                     <p>In an ideal world, each lesson would have games to play and quizzes to take. Unfortunately, we live in this world. Would you like to play the games that are available instead?</p>
                 </div>
-                <div class="modal-footer">              
+                <div class="modal-footer">      
+                    <!--  button leads to other content -->
                     <a role="button" class="btn mr-auto btn-primary btn-outline-secondary text-white" href="games.html">Hell yeah!</a>
+                    <!-- button dismisses modal -->
                     <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" data-dismiss="modal">Nah.</button>                
                 </div>
             </div>
