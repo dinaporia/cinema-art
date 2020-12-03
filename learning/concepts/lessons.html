@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../../css/styles.css">
 
-    <title>Film Art Website</title>
+    <title>Film Art: Concepts</title>
 </head>
 
 <body>
@@ -31,8 +31,8 @@
                     <div class="flex-column nav-tabs align-items-stretch collapse navbar-collapse" id="sidebar">
                         <a class="d-flex align-items-center nav-link flex-fill active" href="index.html">Film Concepts</a>
                         <a class="d-flex align-items-center nav-link flex-fill" href="../history/index.html">Film History</a>
-                        <a class="d-flex align-items-center nav-link flex-fill" href="games.html">Games</a>
-                        <a class="d-flex align-items-center nav-link flex-fill" href="quizzes.html">Quizzes</a>
+                        <a class="d-flex align-items-center nav-link flex-fill" href="../games.html">Games</a>
+                        <a class="d-flex align-items-center nav-link flex-fill" href="../quizzes.html#concepts">Quizzes</a>
                     </div>
                 </nav>
             </div>
@@ -48,7 +48,7 @@
                 <div class="content-panel">
                         <!-- tab based navigation to different content sections -->
                     <ul class="nav nav-tabs nav-fill justify-content-between units" id="units">
-                        <li class="nav-item"><a class="nav-link px-0 active" data-toggle="tab" href="#intro" id="intro-tab" role="tab" aria-controls="intro" aria-selected="true">What is film?</a></li>
+                        <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#intro" id="intro-tab" role="tab" aria-controls="intro" aria-selected="true">What is film?</a></li>
                         <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#mise-en-scene" id="mise-en-scene-tab" role="tab" aria-controls="mise-en-scene" aria-selected="false">Mise-en-scene</a></li>
                         <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#cinematography" id="cinematography-tab" role="tab" aria-controls="cinematography" aria-selected="false">Cinematography</a></li>
                         <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#editing" id="editing-tab" role="tab" aria-controls="editing" aria-selected="false">Editing</a></li>
@@ -58,10 +58,10 @@
 
                     <!-- unit content sections -->
                     <div class="tab-content units-content p-5">
-                        <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="intro-tab">
-                            <h2 class="text-center mb-3">What is Film?</h2>
-                            <div class="clearfix">
-                                <section id="illusion-of-motion">
+                        <div class="tab-pane fade show" id="intro" role="tabpanel" aria-labelledby="intro-tab">
+                            <h2 class="text-center mb-3">What is film?</h2>
+                            <div>
+                                <section>
                                 <h4 class="my-2">The illusion of motion</h4>
                                 <p>Film creates the illusion of motion through the rapid succession of individual frames recorded on film stock. This illusion is possible because of two quirks in our vision system:</p>
                                                               
@@ -76,7 +76,7 @@
                                     </dd>
                                 </dl>
                             </section>
-                            
+                            <div class="clearfix">
                                 <h4 class="my-2">The mechanics of film</h4>
                                 <p>A <span>camera</span> is a light-tight chamber in which film is spooled from one reel onto another. In between the two reels, the film passes the aperture of the lens, where a shutter admits light intermittently, thus exposing each individual frame of film. The projector is basically an inverted camera.</p>                                 
                                 <img src="../../img/film-reel.jpg" alt="a reel of 16mm film" class="content-image float-sm-right ml-sm-2 ml-md-3 my-2" width="250" height="auto" data-toggle="tooltip" title="Modern film stock is much more durable than old, cellulose-nitrate-based stock." />
@@ -87,6 +87,7 @@
                                 <img src="../../img/Bolex_H16_Reflex.jpg" alt="a Bolex Reflex camera" class="content-image float-sm-left mr-sm-2 mr-md-3 my-2" width="250" height="auto" data-toggle="tooltip" title="Early film cameras, like the Bolex, were operated by a hand crank." />
                                                        
                                 <p>Originally, the speed of shooting and projecting film varied because cameras and projectors were operated by a hand crank. Now the most commonly used speed is 24 fps because that was the slowest speed still allowing sufficient sound quality when <a href="../history/lessons.html#sound">synchronous sound was introduced to film in the 1920s</a>. Film is shot and projected at 24 fps, but the projector shutter breaks the light beam once as the new image is slid into place and once while it is held in place, so each frame is actually shown twice, thus making it 48 images per second, which is enough to fool our eyes into perceiving a continuous moving image.</p>
+                            </div>
                             
                             <section>
                                 <h4 class="my-2">The stages of film production</h4>
@@ -119,30 +120,35 @@
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="mise-en-scene" role="tabpanel" aria-labelledby="mise-en-scene-tab">
+                            <h2 class="text-center mb-3">Mise-en-scene</h2>
                             <div class="clearfix m-5">
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="cinematography" role="tabpanel" aria-labelledby="cinematography-tab">
+                            <h2 class="text-center mb-3">Cinematography</h2>
                             <div class="clearfix m-5">
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="editing" role="tabpanel" aria-labelledby="editing-tab">
+                            <h2 class="text-center mb-3">Editing</h2>
                             <div class="clearfix m-5">
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="narrative" role="tabpanel" aria-labelledby="narrative-tab">
+                            <h2 class="text-center mb-3">Narrative</h2>
                             <div class="clearfix m-5">
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="genre" role="tabpanel" aria-labelledby="genre-tab">
+                            <h2 class="text-center mb-3">Genre</h2>
                             <div class="clearfix m-5">
                                 <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
                             </div>

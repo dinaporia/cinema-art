@@ -10,6 +10,24 @@ $(function() {
 
     // enable tooltips
     $('[data-toggle="tooltip"]').tooltip();
+
+    // check for unit paramaters on loading the learning modules
+    const redirectUrl = window.location.href;
+    let hashIndex = redirectUrl.indexOf('#');
+    // if url contains fragment
+    if (hashIndex != -1) {
+        // get id from url
+        let unitHash = redirectUrl.slice(hashIndex);
+        // if fragment contains id 
+        if (unitHash.length > 1) {
+            // activate BS tab with that id
+            let tabHash = unitHash +  "-tab";
+            $(tabHash).tab('show');
+        }
+    };
+
+
+
 });
 
 // cycle through tabs in learning module top navigation
@@ -19,6 +37,9 @@ function getNextTab() {
  function getPreviousTab() {
      $('#units').find('.active').parent().prev().children().tab('show');
  };
+
+
+
 
  // add shadow styling depending on screen size on learning portal
  function addCardShadow(x) {

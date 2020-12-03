@@ -7360,6 +7360,8 @@ header {
       text-shadow: 2px 2px 3px #1f2c30;
       font-variant: small-caps;
       font-size: 3em; }
+    .module-card .image-overlay img {
+      filter: brightness(70%) contrast(90%); }
   .module-card .card-footer {
     z-index: 1; }
   .module-card .nav-link {

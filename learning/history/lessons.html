@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Educational content for film studies">
+    <meta name="author" content="Dina Muhic">
+
+<!-- Custom stylesheets-->
+    <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <title>Film Art: History</title>
+</head>
+
+<body>
+    <!-- BS grid -->
+    <div class="container-fluid pl-0">
+        <div class="row h-100">
+
+            <!-- left column contains responsive navigation bar  -->
+            <div class="col-1 col-md-2 navbar-column px-0"> 
+                <!-- sidebar navigation collapses on smaller screens -->
+                <nav class="h-100 flex-column navbar navbar-expand-md p-0">
+                    <!-- main-menu div toggles between home button link and hamburger menu depending on vp -->
+                    <div class="main-menu">
+                        <a href="../../index.html" class="home d-none d-md-block btn btn-dark "><i class="fa fa-home"></i></a>
+                        <button class="navbar-toggler home" type="button" data-toggle="collapse" data-target="#sidebar"><span class="fa fa-bars"></button>
+                    </div>
+                    <!-- sidebar content stretches across full height of screen, uses BS tab hover effects -->
+                    <div class="flex-column nav-tabs align-items-stretch collapse navbar-collapse" id="sidebar">
+                        <a class="d-flex align-items-center nav-link flex-fill" href="../concepts/index.html">Film Concepts</a>
+                        <a class="d-flex align-items-center nav-link flex-fill active" href="#">Film History</a>
+                        <a class="d-flex align-items-center nav-link flex-fill" href="../games.html">Games</a>
+                        <a class="d-flex align-items-center nav-link flex-fill" href="../quizzes.html#history">Quizzes</a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- right column contains header and learning content -->
+            <div class="col-11 col-md-10 pr-0">
+                 <!-- sticky header -->
+                <header class="mb-2 py-3 sticky-top text-center bg-dark text-white">
+                    <h1 class="text-light">Film History</h1>
+                    <p>Some text summarizing this page</p>
+                </header>
+                <!-- div to center all content when sidebar is hidden -->
+                <div class="content-panel">
+                        <!-- tab based navigation to different content sections -->
+                    <ul class="nav nav-tabs nav-fill justify-content-between units" id="units">
+                        <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#intro" id="intro-tab" role="tab" aria-controls="intro" aria-selected="true">The birth of cinema</a></li>
+                        <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#movements" id="movements-tab" role="tab" aria-controls="movements" aria-selected="false">Cinematic movements</a></li>
+                        <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#hollywood" id="hollywood-tab" role="tab" aria-controls="hollywood" aria-selected="false">Studio system</a></li>
+                        <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#sound" id="sound-tab" role="tab" aria-controls="sound" aria-selected="false">Advent of sound</a></li>
+                        <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#new-hollywood" id="new-hollywood-tab" role="tab" aria-controls="new-hollywood" aria-selected="false">New Hollywood</a></li>
+                        <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#digital" id="digital-tab" role="tab" aria-controls="digital" aria-selected="false">Digital Era</a></li>
+                    </ul>
+
+                    <!-- unit content sections -->
+                    <div class="tab-content units-content p-5">
+                        <div class="tab-pane fade show" id="intro" role="tabpanel" aria-labelledby="intro-tab">
+                            <h2 class="text-center mb-3">The birth of cinema</h2>
+                            <div>
+                               
+                            </div>
+                            <div class="clearfix m-5">
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="movements" role="tabpanel" aria-labelledby="movements-tab">
+                            <h2 class="text-center mb-3">Significant cinematic movements</h2>
+                            <div class="clearfix m-5">
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="hollywood" role="tabpanel" aria-labelledby="hollywood-tab">
+                            <h2 class="text-center mb-3">The rise and fall of the Hollywood studio system</h2>
+                            <div class="clearfix m-5">
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="sound" role="tabpanel" aria-labelledby="sound-tab">
+                            <h2 class="text-center mb-3">The advent of sound</h2>
+                            <div class="clearfix m-5">
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="new-hollywood" role="tabpanel" aria-labelledby="new-hollywood-tab">
+                            <h2 class="text-center mb-3">The rise of New Hollywood</h2>
+                            <div class="clearfix m-5">
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Lesson</button>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="digital" role="tabpanel" aria-labelledby="digital-tab">
+                            <h2 class="text-center mb-3">The digital era</h2>
+                            <div class="clearfix m-5">
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Lesson</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+
+        </div>
+    </div>
+  
+
+
+  
+
+<!-- JQuery, Popper, and Bootstrap JS-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script src="../../js/scripts.js"></script>
+
+
+</body>
+</html>

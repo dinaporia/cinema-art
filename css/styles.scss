@@ -130,6 +130,9 @@ header {
             font-variant: small-caps;
             font-size: 3em;
         }
+        img {
+            filter: brightness(70%) contrast(90%);
+        }
     }
     // override stretched-link in footer
     .card-footer { 
