@@ -7426,6 +7426,18 @@ header {
     border-right: 1px solid #1f2c30;
     border-bottom: none; } }
 
+.game {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  border: 2px double #1f2c30;
+  padding: auto; }
+
+#blurImageContainer {
+  position: absolute;
+  width: 537px;
+  height: 358px; }
+
 @media only screen and (min-width: 768px) {
   .learn-banner {
     height: 100%; }

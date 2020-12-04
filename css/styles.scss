@@ -235,6 +235,19 @@ header {
     }
 }
 
+.game {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    border: 2px double $dark;
+    padding: auto;
+}
+#blurImageContainer {
+    position: absolute;
+    width: 537px;
+    height: 358px;
+}
+
 // for md+ vps
 @media only screen and (min-width:768px) {
     // learning portal background takes up full height
