@@ -46,23 +46,19 @@
                 </header>
 
                <div class="py-5 px-1">
-                   <p class="d-block mx-2 text-center">
-                    Uh-oh... This page has not yet been created. You can go back to the <a href="../index.html">homepage</a> or try guessing the movie from the still below! 
-                   </p>
-
-                   <div class="game">
-                       <img id="blurImageContainer" src="">
-                       <button type="button" id="startButton" class="btn btn-outline-dark btn-light" onclick="blurGame()">Start Game!</button>
-                       <p>Score: <span id="currentScore"></span></p>
-                   </div>
-                   
-                   
-                   <fieldset class="p-4 text-center hide">
-                   <input type="text" class="align-middle" name="guess" value="" id="blurGuess" required>
-                   <button type="button" class="btn btn-outline-dark btn-accent" onclick="checkBlurGuess()">Guess!</button>
-                </fieldset>
+                    <p class="d-block mx-2 text-center">Uh-oh... This page has not yet been created. You can go back to the <a href="../index.html">homepage</a> or try guessing the movie from the still below!</p>
+                    <!-- blur game -->
+                    <div class="game">
+                        <img id="blurImageContainer" src="">
+                        <button type="button" id="startButton" class="btn btn-outline-dark btn-light" onclick="blurGame()">Start Game!</button>
+                        <p>Score: <span id="currentScore"></span></p>
+                    </div>
+                    <!-- fieldset is hidden until game starts -->
+                    <fieldset class="p-4 text-center hide">
+                        <input type="text" class="align-middle" name="guess" value="" id="blurGuess" required>
+                        <button type="button" class="btn btn-outline-dark btn-accent" onclick="checkBlurGuess()">Guess!</button>
+                    </fieldset>
                </div>
-
             </div>
 
         </div>
@@ -90,10 +86,10 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-secondary">
-                    <h5 class="modal-title" id="failLabel">Wrong!!</h5>
+                    <h5 class="modal-title" id="failLabel">Wrong!</h5>
                 </div>
                 <div class="modal-body">
-                    <p>Your guess is not correct. Make sure you're spelling everything correctly, and don't use any punctuation!"</p>
+                    <p>Your guess is not correct. Make sure you're spelling everything correctly, and don't use any punctuation!</p>
                 </div>
                 <div class="modal-footer">     
                      <!-- continues game  -->

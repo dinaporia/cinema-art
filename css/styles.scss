@@ -161,9 +161,7 @@ header {
     border: 1px solid $dark;
     width: 40%;
     min-width: 250px;
-    max-width: 350px;
-
-    
+    max-width: 350px;   
 }
 
 .units-content {
@@ -192,7 +190,6 @@ header {
     max-width: 600px;
     margin: auto;
     background-color: $dark;
-    
     .btn {
         position: absolute;
         width: 100px;
@@ -216,8 +213,8 @@ header {
     margin: auto;
     width: auto;
     height: 358px;
-    
 }
+
 .hide {
     display: none;
 }
@@ -240,6 +237,7 @@ header {
     }
 
 }
+
 // for sm+ vp
 @media only screen and (min-width:576px) {
     // learning portal card appearance 

@@ -36,12 +36,12 @@ function blurGame() {
     $("fieldset").show();
     // score displays on screen
     $("#currentScore").text(score);
-    // times starts
+    // blur timer runs every 2 seconds
     pauseTimer = setInterval(blurTimer, 2000);
 }
    
 function blurTimer() {
-    // as long as the image is blurred, decrease score by 5 and blur by 3 every 3 seconds
+    // as long as the image is blurred, decrease score by 5 and blur by 2
     if (blurVal > 0) {
         blurVal -= 2;
         score -= 5;
@@ -66,7 +66,7 @@ function blurTimer() {
         if (guess === "") {
             pauseTimer = setInterval(blurTimer, 2000);
             return;
-            // if guess matches image title
+        // if guess is correct
         } else if (guess === image.title.toLowerCase()) {
             // hide input field
             $("fieldset").hide();
@@ -76,7 +76,7 @@ function blurTimer() {
             // desplay success modal
             $("#successModal").modal();
         } else {
-            // if guess is incorrect, clear input field and display failure modal
+        // if guess is incorrect, clear input field and display failure modal
             $("#blurGuess:text").val("");
             $("#failModal").modal();
             } 
@@ -89,13 +89,13 @@ function blurTimer() {
         $("#successModal").modal("hide");
     })
 
-   // event handler for Guess Again button on failure modal
-   $("#guess-again").click(function() {
-    // continue timer, dismiss modal
-    $("#failModal").modal("hide");
-    pauseTimer = setInterval(blurTimer, 2000);
+    // event handler for Guess Again button on failure modal
+    $("#guess-again").click(function() {
+        // continue timer, dismiss modal
+        $("#failModal").modal("hide");
+        pauseTimer = setInterval(blurTimer, 2000);
     })
-
+    // event handler for Give up button on failure modal
     $("#give-up").click(function() {
         $("#failModal").modal("hide");
         location.reload();
