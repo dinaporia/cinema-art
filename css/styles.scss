@@ -184,6 +184,43 @@ header {
     }
 }
 
+// blur game
+.game {
+    display: flex;
+    position: relative;
+    padding: 5px;
+    max-width: 600px;
+    margin: auto;
+    background-color: $dark;
+    
+    .btn {
+        position: absolute;
+        width: 100px;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        transform: translate(-50%, -50%);
+        
+    }
+    p {
+        position: absolute;
+        right: 0px;
+        width: 100px;
+        background: $trans-box;
+        color: white;
+        padding: 5px;
+    }
+}
+#blurImageContainer {
+    position: relative;
+    margin: auto;
+    width: auto;
+    height: 358px;
+    
+}
+.hide {
+    display: none;
+}
 
 // for xs vp only
 @media only screen and (max-width:576px) {
@@ -235,18 +272,7 @@ header {
     }
 }
 
-.game {
-    position: relative;
-    width: 600px;
-    height: 400px;
-    border: 2px double $dark;
-    padding: auto;
-}
-#blurImageContainer {
-    position: absolute;
-    width: 537px;
-    height: 358px;
-}
+
 
 // for md+ vps
 @media only screen and (min-width:768px) {

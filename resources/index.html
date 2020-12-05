@@ -31,32 +31,34 @@
                     <div class="flex-column nav-tabs align-items-stretch collapse navbar-collapse" id="sidebar">
                         <a class="d-flex align-items-center nav-link flex-fill" href="#">Timeline</a>
                         <a class="d-flex align-items-center nav-link flex-fill" href="#">Glossary</a>
-                        <a class="d-flex align-items-center nav-link flex-fill" href="#">Recommended Screenings</a>
+                        <a class="d-flex align-items-center nav-link flex-fill" href="#">Screening Recs</a>
                         <a class="d-flex align-items-center nav-link flex-fill" href="#">External Links</a>
                     </div>
                 </nav>
             </div>
 
-            <!-- right column contains header and learning content -->
-            <div class="col pr-0">
+            <!-- right column contains header and content -->
+            <div class="col-11 col-sm pr-0">
                  <!-- sticky header -->
                 <header class="mb-2 py-3 sticky-top text-center bg-dark text-white">
                     <h1 class="text-light">Additional Resources</h1>
                     <p>Some text summarizing this page</p>
                 </header>
 
-               <div class="m-5">
-                   <p>
-                    Uh-oh! This page has not yet been created. You can go back to the <a href="../index.html">homepage</a> or try guessing the movie from the still below! 
+               <div class="py-5 px-1">
+                   <p class="d-block mx-2 text-center">
+                    Uh-oh... This page has not yet been created. You can go back to the <a href="../index.html">homepage</a> or try guessing the movie from the still below! 
                    </p>
 
                    <div class="game">
                        <img id="blurImageContainer" src="">
-                        <p>Score: <span id="currentScore"></span></p>
+                       <button type="button" id="startButton" class="btn btn-outline-dark btn-light" onclick="blurGame()">Start Game!</button>
+                       <p>Score: <span id="currentScore"></span></p>
                    </div>
-                   <button type="button" class="btn btn-outline-dark" onclick="blurGame()">Start Game!</button>
-                   <fieldset>
-                   <input type="text" name="guess" value="" id="blurGuess" required>
+                   
+                   
+                   <fieldset class="p-4 text-center hide">
+                   <input type="text" class="align-middle" name="guess" value="" id="blurGuess" required>
                    <button type="button" class="btn btn-outline-dark btn-accent" onclick="checkBlurGuess()">Guess!</button>
                 </fieldset>
                </div>
@@ -66,33 +68,35 @@
         </div>
     </div>
   
-   <!-- modals for game guesses -->
+   <!-- modal for successful guess -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-secondary">
-                    <h5 class="modal-title" id="successLabel">Success</h5>
+                    <h5 class="modal-title" id="successLabel">Success!</h5>
                 </div>
                 <div class="modal-body">
+                    <!-- empty spans are filled with image info before modal opens -->
                     <p>You guessed correctly! The still is from <span id="movieStill"></span>. Your final score was <span id="finalScore"></span>.</p>
                 </div>
                 <div class="modal-footer">      
-                    <!--  continue game -->
                     <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" id="ok-button" data-dismiss="modal">OK</button>              
                 </div>
             </div>
         </div>
     </div>
+    <!-- modal for wrong guess -->
     <div class="modal fade" id="failModal" tabindex="-1" aria-labelledby="failLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-secondary">
-                    <h5 class="modal-title" id="failLabel">Guess again!</h5>
+                    <h5 class="modal-title" id="failLabel">Wrong!!</h5>
                 </div>
                 <div class="modal-body">
                     <p>Your guess is not correct. Make sure you're spelling everything correctly, and don't use any punctuation!"</p>
                 </div>
-                <div class="modal-footer">      
+                <div class="modal-footer">     
+                     <!-- continues game  -->
                     <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" data-dismiss="modal" id="guess-again">Guess again!</button>
                     <!-- reloads window -->
                     <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" id="give-up">Give up.</button>                         
