@@ -71,6 +71,10 @@ header {
                 background-color: $primary;
             }
         }
+        &.collapsing {
+            transition: none; 
+        }
+        
     }
 }
 
@@ -181,31 +185,35 @@ header {
         border: 1px solid $dark;
     }
 }
-
-// blur game
+// games
 .game {
     display: flex;
     position: relative;
     padding: 5px;
     max-width: 600px;
     margin: auto;
-    background-color: $dark;
-    .btn {
-        position: absolute;
-        width: 100px;
-        top: 50%;
-        left: 50%;
-        margin: 0;
-        transform: translate(-50%, -50%);
-        
-    }
-    p {
-        position: absolute;
-        right: 0px;
-        width: 100px;
-        background: $trans-box;
-        color: white;
-        padding: 5px;
+}
+// blur game
+#blur {
+    .game {
+        background-color: $dark;
+        .btn {
+            position: absolute;
+            width: 100px;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            transform: translate(-50%, -50%);
+            
+        }
+        p {
+            position: absolute;
+            right: 0px;
+            width: 100px;
+            background: $trans-box;
+            color: white;
+            padding: 5px;
+        }
     }
 }
 #blurImageContainer {
@@ -218,6 +226,42 @@ header {
 .hide {
     display: none;
 }
+
+// jeopardy game
+#jeopardy {
+    text-align: center;
+}
+
+.jeopardy-main {
+    border: 2px solid $accent;
+    background: $primary;
+    color: white;
+    font-size: 1.2em;
+    td {
+        border-color: $secondary;
+        width: 20%;
+    }
+    thead th {
+        font-family: $font-stack;
+        font-variant: small-caps;
+        
+        border-bottom: 2px solid $secondary;
+    }
+}
+
+/*
+    .head-row {
+        
+        border: none;
+        border-bottom: 3px $secondary double;
+        padding: .5em;
+    }
+    .col {
+        border: 1px solid $secondary;
+    }
+}*/
+
+
 
 // for xs vp only
 @media only screen and (max-width:576px) {

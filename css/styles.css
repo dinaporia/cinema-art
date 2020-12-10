@@ -7317,6 +7317,8 @@ header {
         background-color: #fdce61; }
       .navbar-column .navbar-collapse .nav-link.active {
         background-color: #1178a9; }
+    .navbar-column .navbar-collapse.collapsing {
+      transition: none; }
 
 /* background of home page with full screen image */
 .home-banner {
@@ -7403,16 +7405,18 @@ header {
   position: relative;
   padding: 5px;
   max-width: 600px;
-  margin: auto;
+  margin: auto; }
+
+#blur .game {
   background-color: #1f2c30; }
-  .game .btn {
+  #blur .game .btn {
     position: absolute;
     width: 100px;
     top: 50%;
     left: 50%;
     margin: 0;
     transform: translate(-50%, -50%); }
-  .game p {
+  #blur .game p {
     position: absolute;
     right: 0px;
     width: 100px;
@@ -7429,6 +7433,33 @@ header {
 .hide {
   display: none; }
 
+#jeopardy {
+  text-align: center; }
+
+.jeopardy-main {
+  border: 2px solid #f74c8d;
+  background: #1178a9;
+  color: white;
+  font-size: 1.2em; }
+  .jeopardy-main td {
+    border-color: #ffa693;
+    width: 20%; }
+  .jeopardy-main thead th {
+    font-family: "Roboto", sans-serif;
+    font-variant: small-caps;
+    border-bottom: 2px solid #ffa693; }
+
+/*
+    .head-row {
+        
+        border: none;
+        border-bottom: 3px $secondary double;
+        padding: .5em;
+    }
+    .col {
+        border: 1px solid $secondary;
+    }
+}*/
 @media only screen and (max-width: 576px) {
   nav.fixed-bottom .nav-item {
     writing-mode: sideways-lr; }
