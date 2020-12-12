@@ -7403,12 +7403,12 @@ header {
 .game {
   display: flex;
   position: relative;
-  padding: 5px;
   max-width: 600px;
   margin: auto; }
 
 #blur .game {
-  background-color: #1f2c30; }
+  background-color: #1f2c30;
+  padding: 5px; }
   #blur .game .btn {
     position: absolute;
     width: 100px;
@@ -7435,31 +7435,55 @@ header {
 
 #jeopardy {
   text-align: center; }
+  #jeopardy .game {
+    background-color: #1178a9; }
+  #jeopardy .prompt {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    color: white; }
+    #jeopardy .prompt p {
+      width: 100%;
+      padding: .5rem; }
+    #jeopardy .prompt .btn-group-vertical {
+      min-width: 50%; }
+    #jeopardy .prompt .btn {
+      border-radius: 0.25rem; }
 
 .jeopardy-main {
+  z-index: -1;
   border: 2px solid #f74c8d;
   background: #1178a9;
   color: white;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  margin-bottom: 0;
+  table-layout: fixed;
+  width: 100%; }
   .jeopardy-main td {
     border-color: #ffa693;
-    width: 20%; }
+    height: 60px; }
+    .jeopardy-main td:not(.answered):hover {
+      background-color: #ffa693;
+      color: #1178a9;
+      font-weight: bold;
+      cursor: pointer; }
+    .jeopardy-main td.answered {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: lightgray; }
+      .jeopardy-main td.answered:hover {
+        cursor: default; }
   .jeopardy-main thead th {
     font-family: "Roboto", sans-serif;
     font-variant: small-caps;
+    vertical-align: middle;
     border-bottom: 2px solid #ffa693; }
+  .jeopardy-main th {
+    width: 20%;
+    height: 70px; }
 
-/*
-    .head-row {
-        
-        border: none;
-        border-bottom: 3px $secondary double;
-        padding: .5em;
-    }
-    .col {
-        border: 1px solid $secondary;
-    }
-}*/
 @media only screen and (max-width: 576px) {
   nav.fixed-bottom .nav-item {
     writing-mode: sideways-lr; }
