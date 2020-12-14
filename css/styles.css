@@ -7454,7 +7454,6 @@ header {
       border-radius: 0.25rem; }
 
 .jeopardy-main {
-  z-index: -1;
   border: 2px solid #f74c8d;
   background: #1178a9;
   color: white;
@@ -7483,6 +7482,9 @@ header {
   .jeopardy-main th {
     width: 20%;
     height: 70px; }
+
+.hide-z {
+  z-index: -1; }
 
 @media only screen and (max-width: 576px) {
   nav.fixed-bottom .nav-item {

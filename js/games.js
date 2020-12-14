@@ -1,7 +1,8 @@
+
 $("#blur-tab").on("click", blurSetUp);
+$("#jeopardy-tab").on("click", jeopardyGame);
 
-
-// blur game 
+/*    XXXXXX   BLUR GAME  XXXXXX      */
 function blurSetUp () {
     // create objects to hold images along with movie titles
     const img1 = {url: "../img/caligari.jpg", title:"The Cabinet of Dr Caligari"};
@@ -132,6 +133,96 @@ function blurSetUp () {
         }
 };
 
-// jeopardy game 
-/* when prompt comes up, send table jeopardy-main to z-index -1; 
-*/
+/*    XXXXXX   JEOPARDY GAME  XXXXXX      */
+// when prompt comes up, send table jeopardy-main to z-index -1
+function jeopardyGame() {
+    const category = ["Industry", "Style", "People", "Tech", "EarlyDays"];
+    const jeopardyArray = [];
+    let score = 0;
+    let pointValue = 0;
+    let cellCategory = "";
+
+    class GameCell {
+        constructor(category, points, element, question, correctAnswer) {
+            this.category = category;
+            this.points = points;
+            this.element = element;
+            this.question = question;
+            this.correctAnswer = correctAnswer;
+        }
+        // add answered class to element
+        markAnswered() {
+            $(this.element).addClass("answered");
+        }
+    };
+
+    function runJeopardy(gameObject) {
+        console.log("run jeopardy");
+        console.log(gameObject);
+        $(".jeopardy-main").addClass("hide-z");
+        $("#question").removeClass("hide-z");
+        gameObject.markAnswered();
+    }
+
+    function checkAnswer(gameObject, answer) {
+        if (answer === gameObject.correctAnswer) {
+            score += gameObject.points;
+            $("#gain").text(`gain ${gameObject.points} points!`)
+        
+        } else {
+            score -= gameObject.points;
+            $("#gain").text(`lose ${gameObject.points} points.`)
+        }
+        $("#correctAnswer").html(`<i>${gameObject.correctAnswer}</i>`);
+        $("#total").text(score).
+        $("#answer").removeClass("hide");
+        $("#question").addClass("hide");
+    }
+    // create objects for each cell and add to jeopardyArray
+    $(".jeopardy-main td").each(function() {
+        // determine points value based on parent row
+        let cellParent = this.parentElement;
+        switch(cellParent.getAttribute("id")) {
+            case "pts-10":
+                pointValue = 10;
+                break;
+            case "pts-20":
+                pointValue = 20;
+                break;
+            case "pts-30":
+                pointValue = 30;
+                break;
+            case "pts-40":
+                pointValue = 40;
+                break;
+            case "pts-50":
+                pointValue = 50;
+        }
+        // determine category based on column
+        switch(this) {
+            case cellParent.children[0]:
+                cellCategory = category[0];
+                break;
+            case cellParent.children[1]:
+                cellCategory = category[1];
+                break;
+            case cellParent.children[2]:
+                cellCategory = category[2];
+                break;
+            case cellParent.children[3]:
+                cellCategory = category[3];
+                break;                    
+            case cellParent.children[4]:
+                cellCategory = category[4];
+        }
+        let itemIndex = jeopardyArray.push(new GameCell(cellCategory, pointValue, this));
+        $(this).one("click", () => runJeopardy(jeopardyArray[itemIndex - 1]));
+    });
+
+ 
+console.log(jeopardyArray);
+
+
+
+
+};

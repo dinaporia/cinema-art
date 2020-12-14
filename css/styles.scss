@@ -227,6 +227,8 @@ header {
     display: none;
 }
 
+
+
 // jeopardy game
 #jeopardy {
     text-align: center;
@@ -242,7 +244,6 @@ header {
         margin: 0;
         transform: translate(-50%, -50%);
         color: white;
-     //   z-index: -1;
         p {
             width: 100%;
             padding: .5rem;
@@ -254,12 +255,12 @@ header {
             
             border-radius: 0.25rem;
            
-        }
+        }  
     }
 }
+
 // table styling for jeopardy game
 .jeopardy-main {
-    z-index: -1;
     border: 2px solid $accent;
     background: $primary;
     color: white;
@@ -302,7 +303,9 @@ header {
 }
 
 
-
+.hide-z {
+    z-index: -1;
+}
 
 
 // for xs vp only
