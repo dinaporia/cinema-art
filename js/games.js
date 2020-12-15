@@ -134,95 +134,205 @@ function blurSetUp () {
 };
 
 /*    XXXXXX   JEOPARDY GAME  XXXXXX      */
-// when prompt comes up, send table jeopardy-main to z-index -1
 function jeopardyGame() {
     const category = ["Industry", "Style", "People", "Tech", "EarlyDays"];
-    const jeopardyArray = [];
+    const jeopardyArray = [];   // will store all GameCell Objects
     let score = 0;
     let pointValue = 0;
     let cellCategory = "";
 
+// class holds individual cell objects
     class GameCell {
-        constructor(category, points, element, question, correctAnswer) {
+        constructor(category, points, element, qAndA) {
             this.category = category;
             this.points = points;
             this.element = element;
-            this.question = question;
-            this.correctAnswer = correctAnswer;
+            this.qAndA = qAndA;
         }
-        // add answered class to element
         markAnswered() {
             $(this.element).addClass("answered");
         }
     };
-
-    function runJeopardy(gameObject) {
-        console.log("run jeopardy");
-        console.log(gameObject);
-        $(".jeopardy-main").addClass("hide-z");
-        $("#question").removeClass("hide-z");
-        gameObject.markAnswered();
-    }
-
-    function checkAnswer(gameObject, answer) {
-        if (answer === gameObject.correctAnswer) {
-            score += gameObject.points;
-            $("#gain").text(`gain ${gameObject.points} points!`)
-        
-        } else {
-            score -= gameObject.points;
-            $("#gain").text(`lose ${gameObject.points} points.`)
+// class holds questions and answers
+    class QAndA {
+        constructor(question, category, difficulty, correctAnswer, wrongAnswer1, wrongAnswer2) {
+        this.question = question;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.answers = [
+            {answer: correctAnswer, correct: true},
+            {answer: wrongAnswer1, correct: false},
+            {answer: wrongAnswer2, correct: false}
+        ];
         }
-        $("#correctAnswer").html(`<i>${gameObject.correctAnswer}</i>`);
-        $("#total").text(score).
-        $("#answer").removeClass("hide");
-        $("#question").addClass("hide");
-    }
-    // create objects for each cell and add to jeopardyArray
+    };
+// all questions and answers are stored in QAndA objects
+    // Industry QandA
+    const industry10 = new QAndA("This Hollywood Studio System practice required theaters to buy B movies along with every A movie they bought.", "Industry", 10, "block booking", "distribution", "star system");
+    const industry20 = new QAndA("These two studios were the first to develop synchronized sound technologies", "Industry", 20, "Warner Bros & Fox", "Paramount & United Artists", "MGM & RKO");
+    const industry30 = new QAndA("Also known as the Hays Code, this set of rules banning excessive sex, violence, and immorality in American cinema was self-enforced for much of Hollywood's golden age.", "Industry", 30, "Production Code", "Code of Conduct", "Ratings Code");
+    const industry40 = new QAndA("This independent 1968 film is often credited with bringing about the end of the MPPC and establishing the zombie genre as we know it.", "Industry", 40, "Night of the Living Dead", "Flesh", "Targets");
+    const industry50 = new QAndA("This German production company was initially formed in 1917 in order to produce national propaganda.", "Industry", 50, "UFA", "Tobis", "Wien-Film");
+    const industryArray = [industry10, industry20, industry30, industry40, industry50];
+    // Style QandA
+    const style10 = new QAndA("This type of editing is designed to be unnoticeable and is the most common style of editing used today.", "Style", 10, "continuity editing", "studio editing", "disjunctive editing");
+    const style20 = new QAndA("In a three point lighting set up, this is the primary light that illuminates the subject.", "Style", 20, "key light", "fill light", "spotlight");
+    const style30 = new QAndA("This term refers to the space within a shot that is in focus.", "Style", 30, "depth of field", "mise-en-scene", "zoom");
+    const style40 = new QAndA("This kind of sound contradicts the image.", "Style", 40, "contrapuntal sound", "diegetic sound", "mickey-mousing");
+    const style50 = new QAndA("This Soviet theory suggests that juxtaposing two shots by editing them together creates a new meaning not visible in either shot alone.", "Style", 50, "Kuleshov effect", "vertical integration", "expressionism");
+    const styleArray = [style10, style20, style30, style40, style50];
+    // People QandA
+    const people10 = new QAndA("A magician turned filmmaker, this man’s films were known for their fantastical content and optical illusions.", "People", 10, "Georges Méliès", "Étienne-Jules Marey", "Jean Renoir");
+    const people20 = new QAndA("Often credited with inventing the motion picture, this man applied for a patent for the Kinetograph in 1891.", "People", 20, "Thomas Edison", "Edwin S. Porter", "Auguste Lumière");
+    const people30 = new QAndA("An important filmmaker and theoretician of the Soviet Montage movement, he directed Strike (1924) and Battleship Potemkin (1925).", "People", 30, "Sergei Eisenstein", "Vsevolod Pudovkin", "Dziga Vertov");
+    const people40 = new QAndA("This early feminist filmmaker's most notable work, Meshes of the Afternoon, was inspired by the surrealist movement.", "People", 40, "Maya Deren", "Simone de Beauvoir", "Katherine Dunham");
+    const people50 = new QAndA("This filmmaker was especially famous for his work in Pop Art and investment in the “camp” sensibility.", "People", 50, "Andy Warhol", "Stan Brakhage", "Kenneth Anger");
+    const peopleArray = [people10, people20, people30, people40, people50];
+    // Tech QandA
+    const tech10 = new QAndA("Invented by Edison and Dickson in 1893, this was one of the earliest commercial ways of viewing films.", "Tech", 10, "kinetoscope", "stroboscope", "mutoscope");
+    const tech20 = new QAndA("This early device produces the illusion of motion from a rapid succession of static pictures viewed through slits in a cylindrical enclosure.", "Tech", 20, "zoetrope", "magic lantern", "chromatrope");
+    const tech30 = new QAndA("This small, hand-cranked camera invented by the Lumière Brothers could also be used as a printer and projector.", "Tech", 30, "cinematograph", "photographic revolver", "rotoscope");
+    const tech40 = new QAndA("This rotating building with a movable roof was the first movie studio used by Edison from 1893.", "Tech", 40, "the Black Maria", "the Dark Mary", "the Camera Obscura");
+    const tech50 = new QAndA("Invented in 1895, this innovation enabled longer films to pass quickly through the camera without ripping.", "Tech", 50, "Latham Loop", "Vitaphone", "Reynold's Praxinoscope");
+    const techArray = [tech10, tech20, tech30, tech40, tech50];
+    // Early Days QandA
+    const earlyDays10 = new QAndA("The first commercial film projection was staged by the Lumière brothers in Paris on this date.", "EarlyDays", 10, "Dec. 28th, 1895", "Dec. 25th, 1888", "Dec. 27, 1892");
+    const earlyDays20 = new QAndA("This 1902 Méliès film helped show cinema as a tool of narrative by editing together several scenes.", "EarlyDays", 20, "A Trip to the Moon", "The Teddy Bears", "Serpentine Dancer");
+    const earlyDays30 = new QAndA("This film is generally considered to be the first \n'talkie\n'.", "EarlyDays", 30, "The Jazz Singer", "Don Juan", "Singing in the Rain");
+    const earlyDays40 = new QAndA("This 1920s art movement featured evil main characters, chiaroscuro lighting, and a focus on subjective storytelling, characterized by stylized depictions of madness, obsession, and paranoia.", "EarlyDays", 40, "German Expressionism", "French New Wave", "Soviet Montage");
+    const earlyDays50 = new QAndA("Eastman and Kodak first created rolls of paper film for recording images in this year.", "EarlyDays", 50, "1888", "1864", "1895");
+    const earlyDaysArray = [earlyDays10, earlyDays20, earlyDays30, earlyDays40, earlyDays50];
+    // all QAndA Objects are stored in a categoryArray, grouped in arrays by category
+    const categoryArray = [industryArray, styleArray, peopleArray, techArray, earlyDaysArray];
+
+    // for each data cell in jeopardy table
     $(".jeopardy-main td").each(function() {
-        // determine points value based on parent row
+        let catIndex;   // keeps category index in categoryArray
+        let ptIndex;    // keeps point value index within each category in the categoryArray
         let cellParent = this.parentElement;
+        // determine points value based on parent row
         switch(cellParent.getAttribute("id")) {
             case "pts-10":
                 pointValue = 10;
+                ptIndex = 0;
                 break;
             case "pts-20":
                 pointValue = 20;
+                ptIndex = 1;
                 break;
             case "pts-30":
                 pointValue = 30;
+                ptIndex = 2;
                 break;
             case "pts-40":
                 pointValue = 40;
+                ptIndex = 3;
                 break;
             case "pts-50":
                 pointValue = 50;
+                ptIndex = 4;
         }
-        // determine category based on column
+        // set category index based on column
         switch(this) {
             case cellParent.children[0]:
-                cellCategory = category[0];
+                catIndex = 0;
                 break;
             case cellParent.children[1]:
-                cellCategory = category[1];
+                catIndex = 1;
                 break;
             case cellParent.children[2]:
-                cellCategory = category[2];
+                catIndex = 2;
                 break;
             case cellParent.children[3]:
-                cellCategory = category[3];
+                catIndex = 3;
                 break;                    
             case cellParent.children[4]:
-                cellCategory = category[4];
+                catIndex = 4;
         }
-        let itemIndex = jeopardyArray.push(new GameCell(cellCategory, pointValue, this));
+        cellCategory = category[catIndex]; // indexed category value of item
+        let categoryQAndA = categoryArray[catIndex];  // retrieve array of items within this category
+        let currentQAndA = categoryQAndA[ptIndex];  // retrieve q and a object that matches point value within this category   
+        // create new gameCell object with above values and add to jeopardyArray  
+        let itemIndex = jeopardyArray.push(new GameCell(cellCategory, pointValue, this, currentQAndA));
+        // fire a click event on current cell to runJeopardy function, passing the new gameCell object
         $(this).one("click", () => runJeopardy(jeopardyArray[itemIndex - 1]));
     });
 
- 
+   
+
 console.log(jeopardyArray);
 
+ // function runs when a cell element is clicked, takes GameCell object
+ function runJeopardy(gameObject) {
+    console.log("run jeopardy");
+    console.log(gameObject);
+
+    // store correct answer in variable
+    let correctAnswer = gameObject.qAndA.answers[0].answer;
+    // randomize answers array before passing values to buttons
+    gameObject.qAndA.answers.sort(() => Math.random() - 0.5);
+    let leftAnswer = gameObject.qAndA.answers[0];
+    let middleAnswer = gameObject.qAndA.answers[1];
+    let rightAnswer = gameObject.qAndA.answers[2];
+
+    // pass current object's values to be displayed in html
+    $("#leftBtn").attr("value", leftAnswer.answer);
+    $("#middleBtn").attr("value", middleAnswer.answer);
+    $("#rightBtn").attr("value", rightAnswer.answer);
+    $("#questionPara").text(gameObject.qAndA.question);
+    $("#correctAnswer").text(correctAnswer);
+
+    // toggle z-index of table and question divs
+    $(".jeopardy-main").toggleClass("hide-z");
+    $("#question").toggleClass("hide-z");
+    // visually mute clicked cell to indicate it has been answered
+    gameObject.markAnswered();
+    // on btn click pass the game object and correct value to checkAnswer
+    $("#leftBtn").on("click", () => checkAnswer(gameObject, leftAnswer.correct));
+    $("#middleBtn").on("click", () => checkAnswer(gameObject, middleAnswer.correct));
+    $("#rightBtn").on("click", () => checkAnswer(gameObject, rightAnswer.correct));
+}
 
 
 
+
+// function runs on click of button in question div
+// takes GameCell object and value of clicked answer's correct property
+function checkAnswer(gameObject, correct) {
+    // check for remaining unanswered cells,
+    // if none, onclick shows final score
+    // eventually a play again button
+   
+    // toggle z-index of question and answer divs
+    $("#answer").toggleClass("hide-z");
+    $("#question").toggleClass("hide-z");
+      
+// remove existing event handlers on buttons
+$("#leftBtn").off("click");
+$("#middleBtn").off("click");
+$("#rightBtn").off("click");
+
+$("#answer").one("click", () => {
+    $(".jeopardy-main").toggleClass("hide-z");
+    $("#answer").toggleClass("hide-z");
+
+});
+
+    console.log("score" + score);
+
+    // display points gained depending on correctness of answer
+    if (correct) {
+        score += gameObject.points;
+        $("#gain").text(`gain ${gameObject.points} points!`)
+    } else {
+        score -= gameObject.points;
+        $("#gain").text(`lose ${gameObject.points} points.`)
+    };
+    // display total score
+    $("#total").text(score);
+// problem with clicking and size and z-index - possibly change the display of answer div
+// may affect clicking on cells in main div??
+    // clicking anywhere on answer div returns to table 
+    
+}
 };

@@ -71,7 +71,7 @@
                                     </thead>
                                     <tbody>
                                         <tr id="pts-10">
-                                            <td class="answered">10</td>
+                                            <td>10</td>
                                             <td>10</td>
                                             <td>10</td>
                                             <td>10</td>
@@ -110,15 +110,22 @@
                                     
                                 </table>
                                
-                                <div class="prompt hide-z" id="question"><p>An uninterrupted run of the camera is called...</p>
-                                <div class="btn-group-vertical">
-                                    <button type="button" class="btn btn-outline-light btn-dark m-1">a shot</button>
-                                    <button type="button" class="btn btn-outline-light btn-dark m-1">a scene</button>
-                                    <button type="button" class="btn btn-outline-light btn-dark m-1">a cut</button>
+                                <div class="prompt px-2 hide-z" id="question">
+                                    <div>
+                                        <p id="questionPara"></p>
+                                        <div class="btn-group-vertical">
+                                            <input type="button" id="leftBtn" class="btn btn-outline-light btn-dark m-1"></input>
+                                            <input type="button" id="middleBtn" class="btn btn-outline-light btn-dark m-1"></input>
+                                            <input type="button" id="rightBtn" class="btn btn-outline-light btn-dark m-1"></input>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                <div class="prompt hide-z" id="answer"><p>The correct answer is: <span id="correctAnswer"></span>. You <span id="gain"></span> points!</p> <p>Your total score is: <span id="total"></span>.</p></div>
+                                <div class="prompt hide-z" id="answer">
+                                    <div>
+                                        <p>The correct answer is: <span id="correctAnswer"></span>. You <span id="gain"></span></p>
+                                        <p>Your total score is: <span id="total"></span>.</p>
+                                    </div>
+                                </div>
                             </div>
                         
                         </div>

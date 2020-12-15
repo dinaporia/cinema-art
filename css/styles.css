@@ -7440,18 +7440,26 @@ header {
   #jeopardy .prompt {
     position: absolute;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    margin: 0;
-    transform: translate(-50%, -50%);
+    height: 100%;
     color: white; }
     #jeopardy .prompt p {
       width: 100%;
-      padding: .5rem; }
+      padding: 1rem; }
     #jeopardy .prompt .btn-group-vertical {
       min-width: 50%; }
     #jeopardy .prompt .btn {
       border-radius: 0.25rem; }
+  #jeopardy .prompt > div {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%); }
+
+#answer {
+  width: 100%;
+  height: 100%; }
 
 .jeopardy-main {
   border: 2px solid #f74c8d;
