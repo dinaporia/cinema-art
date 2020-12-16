@@ -1,6 +1,6 @@
 
 $("#blur-tab").on("click", blurSetUp);
-$("#jeopardy-tab").on("click", jeopardyGame);
+$(function() {jeopardySetUp()});
 
 /*    XXXXXX   BLUR GAME  XXXXXX      */
 function blurSetUp () {
@@ -134,14 +134,8 @@ function blurSetUp () {
 };
 
 /*    XXXXXX   JEOPARDY GAME  XXXXXX      */
-function jeopardyGame() {
-    const category = ["Industry", "Style", "People", "Tech", "EarlyDays"];
-    const jeopardyArray = [];   // will store all GameCell Objects
-    let score = 0;
-    let pointValue = 0;
-    let cellCategory = "";
-
-// class holds individual cell objects
+function jeopardySetUp() {
+   // class for individual cells
     class GameCell {
         constructor(category, points, element, qAndA) {
             this.category = category;
@@ -151,9 +145,10 @@ function jeopardyGame() {
         }
         markAnswered() {
             $(this.element).addClass("answered");
+            answeredCells++;
         }
     };
-// class holds questions and answers
+    // class for questions and answers
     class QAndA {
         constructor(question, category, difficulty, correctAnswer, wrongAnswer1, wrongAnswer2) {
         this.question = question;
@@ -163,10 +158,18 @@ function jeopardyGame() {
             {answer: correctAnswer, correct: true},
             {answer: wrongAnswer1, correct: false},
             {answer: wrongAnswer2, correct: false}
-        ];
+            ];
         }
     };
-// all questions and answers are stored in QAndA objects
+
+    const category = ["Industry", "Style", "People", "Tech", "EarlyDays"];
+    let jeopardyArray = [];   // will store all GameCell Objects
+    let score = 0;
+    let pointValue = 0;
+    let cellCategory = "";
+    let answeredCells = 0;
+
+    // all questions and answers are stored in QAndA objects
     // Industry QandA
     const industry10 = new QAndA("This Hollywood Studio System practice required theaters to buy B movies along with every A movie they bought.", "Industry", 10, "block booking", "distribution", "star system");
     const industry20 = new QAndA("These two studios were the first to develop synchronized sound technologies", "Industry", 20, "Warner Bros & Fox", "Paramount & United Artists", "MGM & RKO");
@@ -204,135 +207,160 @@ function jeopardyGame() {
     const earlyDaysArray = [earlyDays10, earlyDays20, earlyDays30, earlyDays40, earlyDays50];
     // all QAndA Objects are stored in a categoryArray, grouped in arrays by category
     const categoryArray = [industryArray, styleArray, peopleArray, techArray, earlyDaysArray];
-
-    // for each data cell in jeopardy table
-    $(".jeopardy-main td").each(function() {
-        let catIndex;   // keeps category index in categoryArray
-        let ptIndex;    // keeps point value index within each category in the categoryArray
-        let cellParent = this.parentElement;
-        // determine points value based on parent row
-        switch(cellParent.getAttribute("id")) {
-            case "pts-10":
-                pointValue = 10;
-                ptIndex = 0;
-                break;
-            case "pts-20":
-                pointValue = 20;
-                ptIndex = 1;
-                break;
-            case "pts-30":
-                pointValue = 30;
-                ptIndex = 2;
-                break;
-            case "pts-40":
-                pointValue = 40;
-                ptIndex = 3;
-                break;
-            case "pts-50":
-                pointValue = 50;
-                ptIndex = 4;
-        }
-        // set category index based on column
-        switch(this) {
-            case cellParent.children[0]:
-                catIndex = 0;
-                break;
-            case cellParent.children[1]:
-                catIndex = 1;
-                break;
-            case cellParent.children[2]:
-                catIndex = 2;
-                break;
-            case cellParent.children[3]:
-                catIndex = 3;
-                break;                    
-            case cellParent.children[4]:
-                catIndex = 4;
-        }
-        cellCategory = category[catIndex]; // indexed category value of item
-        let categoryQAndA = categoryArray[catIndex];  // retrieve array of items within this category
-        let currentQAndA = categoryQAndA[ptIndex];  // retrieve q and a object that matches point value within this category   
-        // create new gameCell object with above values and add to jeopardyArray  
-        let itemIndex = jeopardyArray.push(new GameCell(cellCategory, pointValue, this, currentQAndA));
-        // fire a click event on current cell to runJeopardy function, passing the new gameCell object
-        $(this).one("click", () => runJeopardy(jeopardyArray[itemIndex - 1]));
-    });
-
-   
-
-console.log(jeopardyArray);
-
- // function runs when a cell element is clicked, takes GameCell object
- function runJeopardy(gameObject) {
-    console.log("run jeopardy");
-    console.log(gameObject);
-
-    // store correct answer in variable
-    let correctAnswer = gameObject.qAndA.answers[0].answer;
-    // randomize answers array before passing values to buttons
-    gameObject.qAndA.answers.sort(() => Math.random() - 0.5);
-    let leftAnswer = gameObject.qAndA.answers[0];
-    let middleAnswer = gameObject.qAndA.answers[1];
-    let rightAnswer = gameObject.qAndA.answers[2];
-
-    // pass current object's values to be displayed in html
-    $("#leftBtn").attr("value", leftAnswer.answer);
-    $("#middleBtn").attr("value", middleAnswer.answer);
-    $("#rightBtn").attr("value", rightAnswer.answer);
-    $("#questionPara").text(gameObject.qAndA.question);
-    $("#correctAnswer").text(correctAnswer);
-
-    // toggle z-index of table and question divs
-    $(".jeopardy-main").toggleClass("hide-z");
-    $("#question").toggleClass("hide-z");
-    // visually mute clicked cell to indicate it has been answered
-    gameObject.markAnswered();
-    // on btn click pass the game object and correct value to checkAnswer
-    $("#leftBtn").on("click", () => checkAnswer(gameObject, leftAnswer.correct));
-    $("#middleBtn").on("click", () => checkAnswer(gameObject, middleAnswer.correct));
-    $("#rightBtn").on("click", () => checkAnswer(gameObject, rightAnswer.correct));
-}
-
-
-
-
-// function runs on click of button in question div
-// takes GameCell object and value of clicked answer's correct property
-function checkAnswer(gameObject, correct) {
-    // check for remaining unanswered cells,
-    // if none, onclick shows final score
-    // eventually a play again button
-   
-    // toggle z-index of question and answer divs
-    $("#answer").toggleClass("hide-z");
-    $("#question").toggleClass("hide-z");
-      
-// remove existing event handlers on buttons
-$("#leftBtn").off("click");
-$("#middleBtn").off("click");
-$("#rightBtn").off("click");
-
-$("#answer").one("click", () => {
-    $(".jeopardy-main").toggleClass("hide-z");
-    $("#answer").toggleClass("hide-z");
-
-});
-
-    console.log("score" + score);
-
-    // display points gained depending on correctness of answer
-    if (correct) {
-        score += gameObject.points;
-        $("#gain").text(`gain ${gameObject.points} points!`)
-    } else {
-        score -= gameObject.points;
-        $("#gain").text(`lose ${gameObject.points} points.`)
-    };
-    // display total score
-    $("#total").text(score);
-// problem with clicking and size and z-index - possibly change the display of answer div
-// may affect clicking on cells in main div??
-    // clicking anywhere on answer div returns to table 
     
-}
+    // reset game if user navigates to different tab
+    $("#blur-tab").on("click", playAgain);
+    $("#timeline-tab").on("click", playAgain);
+
+    //start game    
+    playGame();
+    
+    function playGame() {
+        // assign objects to data cells
+        $(".jeopardy-main td").each(function() {
+            let catIndex;   // keeps category index in categoryArray
+            let ptIndex;    // keeps point value index within each category in array
+            let cellParent = this.parentElement;
+            // if game is being reset, clear out answered class from each td element
+            if ($(this).hasClass("answered")) {
+                $(this).removeClass("answered");
+            }
+            // determine points value based on parent row
+            switch(cellParent.getAttribute("id")) {
+                case "pts-10":
+                    pointValue = 10;
+                    ptIndex = 0;
+                    break;
+                case "pts-20":
+                    pointValue = 20;
+                    ptIndex = 1;
+                    break;
+                case "pts-30":
+                    pointValue = 30;
+                    ptIndex = 2;
+                    break;
+                case "pts-40":
+                    pointValue = 40;
+                    ptIndex = 3;
+                    break;
+                case "pts-50":
+                    pointValue = 50;
+                    ptIndex = 4;
+            }
+            // set category index based on column
+            switch(this) {
+                case cellParent.children[0]:
+                    catIndex = 0;
+                    break;
+                case cellParent.children[1]:
+                    catIndex = 1;
+                    break;
+                case cellParent.children[2]:
+                    catIndex = 2;
+                    break;
+                case cellParent.children[3]:
+                    catIndex = 3;
+                    break;                    
+                case cellParent.children[4]:
+                    catIndex = 4;
+            }
+            cellCategory = category[catIndex];
+            // retrieve array of items within this category
+            let categoryQAndA = categoryArray[catIndex];  
+            // retrieve qAndA object that matches point value within this category   
+            let currentQAndA = categoryQAndA[ptIndex];  
+            // create new gameCell object with above values and add to jeopardyArray  
+            let itemIndex = jeopardyArray.push(new GameCell(cellCategory, pointValue, this, currentQAndA));
+            // removes any potential click handlers on reset
+            $(this).off("click");
+            // clicking cell fires popQuestion, passing the current gameCell object
+            $(this).one("click", () => popQuestion(jeopardyArray[itemIndex - 1]));
+        });
+      
+
+        // runs when cell element is clicked, takes GameCell object
+        function popQuestion(gameObject) {
+            // store correct answer in variable
+            let correctAnswer = gameObject.qAndA.answers[0].answer;
+            // randomize answers array before passing values to buttons
+            gameObject.qAndA.answers.sort(() => Math.random() - 0.5);
+            let leftAnswer = gameObject.qAndA.answers[0];
+            let middleAnswer = gameObject.qAndA.answers[1];
+            let rightAnswer = gameObject.qAndA.answers[2];
+            // pass current object's values to be displayed in html
+            $("#leftBtn").attr("value", leftAnswer.answer);
+            $("#middleBtn").attr("value", middleAnswer.answer);
+            $("#rightBtn").attr("value", rightAnswer.answer);
+            $("#questionPara").text(gameObject.qAndA.question);
+            $("#correctAnswer").text(correctAnswer);
+            // hide table, show question
+            $(".jeopardy-main").addClass("hide-z");
+            $("#question").removeClass("hide-z");
+            // visually mute clicked cell to indicate it has been answered
+            gameObject.markAnswered();
+            // on btn click pass the game object and correct value to checkAnswer
+            $("#leftBtn").on("click", () => checkAnswer(gameObject, leftAnswer.correct));
+            $("#middleBtn").on("click", () => checkAnswer(gameObject, middleAnswer.correct));
+            $("#rightBtn").on("click", () => checkAnswer(gameObject, rightAnswer.correct));
+        }
+
+        // takes GameCell object and value of clicked answer's correct property
+        function checkAnswer(gameObject, correct) {
+            // remove existing event handlers on buttons
+            $("#leftBtn").off("click");
+            $("#middleBtn").off("click");
+            $("#rightBtn").off("click");
+            // hide question, show answer
+            $("#answer").removeClass("hide-z");
+            $("#question").addClass("hide-z");
+            // display points gained depending on correctness of answer
+            if (correct) {
+                score += gameObject.points;
+                $("#gain").text(`gain ${gameObject.points} points!`)
+            } else {
+                score -= gameObject.points;
+                $("#gain").text(`lose ${gameObject.points} points.`)
+            };
+            // check if there are unanswered questions left
+            if (answeredCells < 25) {
+                // clicking anywhere on answer div returns to table 
+                $("#answer").one("click", () => {
+                    $(".jeopardy-main").removeClass("hide-z");
+                    $("#answer").addClass("hide-z");
+                    });
+                $("#total").text(`Your total score is ${score}.`);
+            } else {
+                // if this is the last unanswered question, display play again button
+                $("#total").text(`Your final score is ${score}.`);
+                $("#playAgainBtn").on("click", playAgain);
+                $("#playAgainBtn").removeClass("hide");
+            };
+        }
+    }
+        // resets game
+        function playAgain() {
+            score = 0;
+            pointValue = 0;
+            cellCategory = "";
+            answeredCells = 0;
+            jeopardyArray = [];
+            // hide inactive divs and buttons
+            $("#playAgainBtn").addClass("hide");
+            $("#answer").addClass("hide-z");
+            $("#question").addClass("hide-z");
+            $(".jeopardy-main").removeClass("hide-z");
+            // remove any leftover button click listeners
+            $("#leftBtn").off("click");
+            $("#middleBtn").off("click");
+            $("#rightBtn").off("click");
+            $("#playAgainBtn").off("click", playAgain);
+            // remove potential stored button values
+            $("#leftBtn").attr("value","");
+            $("#middleBtn").attr("value", "");
+            $("#rightBtn").attr("value", "");
+
+            playGame();
+        }
+    
+
 };
