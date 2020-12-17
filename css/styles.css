@@ -7392,13 +7392,15 @@ header {
   padding-left: 10px; }
 
 .units-content span {
-  color: #f74c8d;
   font-weight: bold; }
 
 .units-content section {
   padding: 25px;
   margin-bottom: 15px;
   border: 1px solid #1f2c30; }
+
+.colorful {
+  color: #f74c8d; }
 
 .game {
   display: flex;
@@ -7418,7 +7420,8 @@ header {
     transform: translate(-50%, -50%); }
   #blur .game p {
     position: absolute;
-    right: 0px;
+    right: 5px;
+    top: 5px;
     width: 100px;
     background: rgba(0, 0, 0, 0.3);
     color: white;
@@ -7429,6 +7432,13 @@ header {
   margin: auto;
   width: auto;
   height: 358px; }
+
+#blur-notice {
+  display: none; }
+  #blur-notice ~ p {
+    display: block; }
+  #blur-notice ~ div {
+    display: block; }
 
 .hide {
   display: none; }
@@ -7499,8 +7509,16 @@ header {
     writing-mode: sideways-lr; }
   .learn-card {
     background-color: transparent; }
-  .units {
-    display: none; } }
+  .units:not(#games-units) {
+    display: none; }
+  #games-units li {
+    display: block;
+    width: 100%; }
+  .jeopardy-main thead th {
+    vertical-align: bottom; }
+    .jeopardy-main thead th > span {
+      font-size: .75rem;
+      writing-mode: sideways-lr; } }
 
 @media only screen and (min-width: 576px) {
   .learn-title {
@@ -7549,3 +7567,11 @@ header {
   .card-panel {
     position: relative;
     left: -2em; } }
+
+@media only screen and (max-width: 800px) {
+  #blur-notice {
+    display: inline-block; }
+    #blur-notice + p {
+      display: none; }
+    #blur-notice ~ div {
+      display: none; } }

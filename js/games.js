@@ -44,25 +44,27 @@ function blurSetUp () {
         $("#currentScore").text(score);
         // blur timer runs every 2 seconds
         pauseTimer = setInterval(blurTimer, 2000);
-
-        // event listeners
+        // check for window size compatibility
+        mql = window.matchMedia("screen and (max-width: 800px)");
+        mql.addEventListener("change", checkResize);
+       
         // guess button runs function to check guess
         $("#guess-btn").on("click", checkBlurGuess);
         // OK button on success modal removes blur
         $("#ok-button").click(function() {
             imgElement.style.filter = "blur(0px)";
             $("#successModal").modal("hide");
-        })
+        });
         // Guess Again button on failure modal continues timer
         $("#guess-again").click(function() {
             $("#failModal").modal("hide");
             pauseTimer = setInterval(blurTimer, 2000);
-        })
+        });
         // Give up button on failure modal resets game
         $("#give-up").click(function() {
             $("#failModal").modal("hide");
             resetGame();
-            })
+            });
         // if user navigates to different tab during gameplay, reset game
         $("#jeopardy-tab").on("click", resetGame);
         $("#timeline-tab").on("click", resetGame);
@@ -79,7 +81,7 @@ function blurSetUp () {
         } else {
             // once the blur is cleared, stop timer and inform user
             clearInterval(pauseTimer);
-            $("#blurGuess:text").val("");
+            resetGame();
             alert("You ran out of time!");
         }
     }
@@ -130,8 +132,15 @@ function blurSetUp () {
             // remove tab event listeners
             $("#jeopardy-tab").off("click", resetGame);
             $("#timeline-tab").off("click", resetGame);
+            window.removeEventListener("resize", checkResize);
         }
-};
+        function checkResize(){
+            mql = window.matchMedia("screen and (max-width: 800px)");
+            if (mql.matches) {
+                resetGame();
+            };
+         }
+}
 
 /*    XXXXXX   JEOPARDY GAME  XXXXXX      */
 function jeopardySetUp() {
