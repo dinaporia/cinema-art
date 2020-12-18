@@ -7349,7 +7349,9 @@ header {
 
 .module-card {
   height: 95%;
-  box-shadow: 1px 1px 4px 2px #1178a9, 3px 3px 5px #ffa693; }
+  box-shadow: 1px 1px 5px 1px #1178a9, 3px 3px 5px 1px #ffa693; }
+  .module-card:hover {
+    box-shadow: 1px 2px 5px 3px #1178a9; }
   .module-card .image-overlay {
     position: relative; }
     .module-card .image-overlay h3 {
@@ -7361,9 +7363,9 @@ header {
       font-family: "Londrina Shadow", cursive;
       text-shadow: 2px 2px 3px #1f2c30;
       font-variant: small-caps;
-      font-size: 3em; }
+      font-size: 2.5em; }
     .module-card .image-overlay img {
-      filter: brightness(70%) contrast(90%); }
+      filter: brightness(65%) contrast(90%); }
   .module-card .card-footer {
     z-index: 1; }
   .module-card .nav-link {

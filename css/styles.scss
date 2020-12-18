@@ -119,8 +119,11 @@ header {
 .module-card {
     // make cards equal height while compensating for 0 margins
     height: 95%;
+    box-shadow: 1px 1px 5px 1px $primary, 3px 3px 5px 1px $secondary;
 
-    box-shadow: 1px 1px 4px 2px $primary, 3px 3px 5px $secondary;
+    &:hover {
+        box-shadow: 1px 2px 5px 3px $primary;
+    }
     // position and style header over image
     .image-overlay {
         position: relative;
@@ -133,10 +136,11 @@ header {
             font-family: $display-font-shadow;
             text-shadow: 2px 2px 3px $dark;
             font-variant: small-caps;
-            font-size: 3em;
+            font-size: 2.5em;
+            letter-spacing: 2px;
         }
         img {
-            filter: brightness(70%) contrast(90%);
+            filter: brightness(65%) contrast(90%);
         }
     }
     // override stretched-link in footer

@@ -33,13 +33,14 @@ $(function() {
 
 // cycle through tabs in learning module top navigation
 function getNextTab() {
-    $('.units').find('.active').parent().next().children().tab('show');
     $(document).scrollTop(0);
+    $('.units').find('.active').parent().next().children().tab('show');
+    
 };
 
  function getPreviousTab() {
-     $('.units').find('.active').parent().prev().children().tab('show');
-     $(document).scrollTop(0);
+    $(document).scrollTop(0);
+    $('.units').find('.active').parent().prev().children().tab('show');
  };
 
 
