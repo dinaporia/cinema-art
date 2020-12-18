@@ -91,6 +91,7 @@ header {
 .home-card, .learn-card {
     background: $trans-box;
     margin: auto;
+    
     .card-title {
         font-family: $display-font-solid;
         font-size: 4em;
@@ -330,6 +331,12 @@ header {
     z-index: -1;
 }
 
+.notice {
+    background: $trans-box;
+    color: black;
+    border: 2px $accent dotted;
+    padding: 5px;
+}
 
 // for xs vp only
 @media only screen and (max-width:576px) {
@@ -354,16 +361,21 @@ header {
             width: 100%;
         }
     }
-
-.jeopardy-main {
-    thead th {
-        vertical-align: bottom;
-        > span {
-        font-size: .75rem;
-        writing-mode: sideways-lr;
+    // jeopardy table adjusts to fit
+    .jeopardy-main {
+        thead th {
+            vertical-align: bottom;
+            > span {
+            font-size: .75rem;
+            writing-mode: sideways-lr;
+            }
         }
     }
-}
+
+    .units-content button {
+        display: block;
+        width: 100%;
+    }
 }
 
 // for sm+ vp

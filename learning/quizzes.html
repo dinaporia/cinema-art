@@ -47,35 +47,35 @@
                 <!-- div to center all content when sidebar is hidden -->
                 <div class="content-panel">
                         <!-- tab based navigation to different content sections -->
-                    <ul class="nav nav-tabs nav-fill justify-content-between units" id="units">
-                        <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#concepts" id="concepts-tab" role="tab" aria-controls="concepts" aria-selected="true">Concepts</a></li>
+                    <ul class="nav nav-tabs nav-fill justify-content-between units">
+                        <li class="nav-item"><a class="nav-link px-0 active" data-toggle="tab" href="#concepts" id="concepts-tab" role="tab" aria-controls="concepts" aria-selected="true">Concepts</a></li>
                         <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#history" id="history-tab" role="tab" aria-controls="history" aria-selected="false">History</a></li>
                         <li class="nav-item"><a class="nav-link px-0" data-toggle="tab" href="#filmmakers" id="filmmakers-tab" role="tab" aria-controls="filmmakers" aria-selected="false">Filmmakers</a></li>
                     </ul>
 
                     <!-- unit content sections -->
                     <div class="tab-content units-content p-5">
-                        <div class="tab-pane fade show" id="concepts" role="tabpanel" aria-labelledby="concepts-tab">
-                            <p class="text-center mb-3">Test your knowledge of film concepts!</p>
-                            <p class="text-center mb-3">This page has not yet been developed.</p>
+                        <div class="tab-pane fade active show" id="concepts" role="tabpanel" aria-labelledby="concepts-tab">
+                            <p class="text-center mb-3 lead">Test your knowledge of film concepts!</p>
+                            <p class="text-center mb-3 notice">This page has not yet been developed.</p>
                             <div class="clearfix m-5">
-                                <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Quiz</button>
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-sm-right" onclick="getNextTab()">Next Quiz</button>
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-tab">
-                            <p class="text-center mb-3">Test your knowledge of film history!</p>
-                            <p class="text-center mb-3">This page has not yet been developed.</p>
+                            <p class="text-center mb-3 lead">Test your knowledge of film history!</p>
+                            <p class="text-center mb-3 notice">This page has not yet been developed.</p>
                             <div class="clearfix m-5">
-                                <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Quiz</button>
-                                <button class="btn btn-lg btn-outline-secondary btn-dark float-right" onclick="getNextTab()">Next Quiz</button>
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-sm-left" onclick="getPreviousTab()">Previous Quiz</button>
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-sm-right" onclick="getNextTab()">Next Quiz</button>
                             </div>
                         </div>
                        
                         <div class="tab-pane fade show" id="filmmakers" role="tabpanel" aria-labelledby="filmmakers-tab">
-                            <p class="text-center mb-3">Test your knowledge of filmmakers!</p>
-                            <p class="text-center mb-3">This page has not yet been developed.</p>
+                            <p class="text-center mb-3 lead">Test your knowledge of filmmakers!</p>
+                            <p class="text-center mb-3 notice">This page has not yet been developed.</p>
                             <div class="clearfix m-5">
-                                <button class="btn btn-lg btn-outline-secondary btn-dark float-left" onclick="getPreviousTab()">Previous Quiz</button>
+                                <button class="btn btn-lg btn-outline-secondary btn-dark float-sm-left" onclick="getPreviousTab()">Previous Quiz</button>
                             </div>
                         </div>
                     </div>

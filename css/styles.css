@@ -7504,6 +7504,12 @@ header {
 .hide-z {
   z-index: -1; }
 
+.notice {
+  background: rgba(0, 0, 0, 0.3);
+  color: black;
+  border: 2px #f74c8d dotted;
+  padding: 5px; }
+
 @media only screen and (max-width: 576px) {
   nav.fixed-bottom .nav-item {
     writing-mode: sideways-lr; }
@@ -7518,7 +7524,10 @@ header {
     vertical-align: bottom; }
     .jeopardy-main thead th > span {
       font-size: .75rem;
-      writing-mode: sideways-lr; } }
+      writing-mode: sideways-lr; }
+  .units-content button {
+    display: block;
+    width: 100%; } }
 
 @media only screen and (min-width: 576px) {
   .learn-title {

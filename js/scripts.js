@@ -23,6 +23,7 @@ $(function() {
             // activate BS tab with that id
             let tabHash = unitHash +  "-tab";
             $(tabHash).tab('show');
+            
         }
     };
 
@@ -32,10 +33,13 @@ $(function() {
 
 // cycle through tabs in learning module top navigation
 function getNextTab() {
-    $('#units').find('.active').parent().next().children().tab('show');
-     };
+    $('.units').find('.active').parent().next().children().tab('show');
+    $(document).scrollTop(0);
+};
+
  function getPreviousTab() {
-     $('#units').find('.active').parent().prev().children().tab('show');
+     $('.units').find('.active').parent().prev().children().tab('show');
+     $(document).scrollTop(0);
  };
 
 
