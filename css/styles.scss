@@ -3,7 +3,29 @@
 @import "custom";
 
 // import Bootstrap 
-@import "../node_modules/bootstrap/scss/bootstrap";
+// @import "../node_modules/bootstrap/scss/bootstrap";
+
+// Required Bootstrap components
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Optional Bootstrap components
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/alert";
+@import "../node_modules/bootstrap/scss/button-group";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/tooltip";
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/utilities";
 
 html, body, .home-banner {
     width: 100%;
@@ -113,14 +135,11 @@ header {
     background-image: url("img/daisies.png");  
 }
 
-
-
 // learning module cards
 .module-card {
     // make cards equal height while compensating for 0 margins
     height: 95%;
     box-shadow: 1px 1px 5px 1px $primary, 3px 3px 5px 1px $secondary;
-
     &:hover {
         box-shadow: 1px 2px 5px 3px $primary;
     }
@@ -164,7 +183,7 @@ header {
         border: none;
         }   
 }
-
+// lessons pages
 .content-image {
     padding: 3px;
     border: 1px solid $dark;
@@ -180,9 +199,6 @@ header {
     dd {
         padding-left: 10px;
     }
-    span {
-        font-weight: bold; 
-    }
     section {
         padding: 25px;
         margin-bottom: 15px;
@@ -192,6 +208,15 @@ header {
 
 .colorful {
     color: $accent;
+    font-weight: bold;
+}
+
+// notice for pages that aren't available
+.notice {
+    background: $trans-box;
+    color: black;
+    border: 2px $accent dotted;
+    padding: 5px;
 }
 
 // games
@@ -214,7 +239,6 @@ header {
             left: 50%;
             margin: 0;
             transform: translate(-50%, -50%);
-            
         }
         // position score in top right corner
         p {
@@ -234,8 +258,8 @@ header {
     width: auto;
     height: 358px;
 }
-
 #blur-notice {
+    // notice only visible on some screen sizes
     display: none;
     ~ p {
         display: block;
@@ -244,7 +268,7 @@ header {
         display: block;
     }
 }
-
+// class used for dynamic visibility toggle in js
 .hide {
     display: none;
 }
@@ -255,7 +279,7 @@ header {
     .game {
         background-color: $primary;
     }
-    // styling for questions & answers
+    // question & answer divs
     .prompt {
         position: absolute;
         width: 100%;
@@ -281,7 +305,6 @@ header {
         transform: translate(-50%, -50%);
     }
 }
-
 #answer {
     width: 100%;
     height: 100%;
@@ -330,27 +353,21 @@ header {
     }
 }
 
-// jeopardy game uses this class to flip between visible elements
+// game js uses this class to flip between visible elements
 .hide-z {
     z-index: -1;
 }
 
-.notice {
-    background: $trans-box;
-    color: black;
-    border: 2px $accent dotted;
-    padding: 5px;
-}
-
+// media queries
 // for xs vp only
 @media only screen and (max-width:576px) {
-    // main navigation bar changes writing direction to fit
+    // main bottom nav bar changes writing direction to fit
     nav.fixed-bottom {
         .nav-item {
             writing-mode: sideways-lr;
         }
     }
-    // learning portal cards are transparent since content is hidden
+    // learning portal cards are transparent when content is hidden
     .learn-card {
         background-color: transparent;
     }
@@ -375,7 +392,7 @@ header {
             }
         }
     }
-
+    // navigation buttons stack
     .units-content button {
         display: block;
         width: 100%;
@@ -385,7 +402,6 @@ header {
 // for sm+ vp
 @media only screen and (min-width:576px) {
     // learning portal card appearance 
-    // the title is offset to overlap border of card
     .learn-title {
         position: absolute;
         width: 100%;
@@ -414,8 +430,6 @@ header {
     }
 }
 
-
-
 // for md+ vps
 @media only screen and (min-width:768px) {
     // learning portal background takes up full height
@@ -426,7 +440,6 @@ header {
     .units {
         .nav-link{
             font-size: 1em;
-        
         }
     }
 }
@@ -440,9 +453,8 @@ header {
             margin: auto;
         }
     }
-    
-     .navbar-column {
-         // sidebar appears on top of other content
+     // when visible, sidebar appears on top of other content
+    .navbar-column {
         z-index: 10;    
         // override BS navbar styling
         .navbar {
@@ -471,7 +483,7 @@ header {
     }
    
 }
-
+// additional media query for blur game bc it isnt yet adaptable for smaller screens
 @media only screen and (max-width: 800px) {
     #blur-notice {
         display: inline-block;
