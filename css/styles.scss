@@ -226,52 +226,7 @@ header {
     max-width: 600px;
     margin: auto;
 }
-// blur game
-#blur {
-    .game {
-        background-color: $dark;
-        padding: 5px;
-        // start game button positioned in center
-        .btn {
-            position: absolute;
-            width: 100px;
-            top: 50%;
-            left: 50%;
-            margin: 0;
-            transform: translate(-50%, -50%);
-        }
-        // position score in top right corner
-        p {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            width: 100px;
-            background: $trans-box;
-            color: white;
-            padding: 5px;
-        }
-    }
-}
-#blurImageContainer {
-    position: relative;
-    margin: auto;
-    width: auto;
-    height: 358px;
-}
-#blur-notice {
-    // notice only visible on some screen sizes
-    display: none;
-    ~ p {
-        display: block;
-    }
-    ~ div {
-        display: block;
-    }
-}
-// class used for dynamic visibility toggle in js
-.hide {
-    display: none;
-}
+
 
 // jeopardy game
 #jeopardy {
@@ -353,6 +308,9 @@ header {
     }
 }
 
+.hide { 
+    display: none;
+}
 // game js uses this class to flip between visible elements
 .hide-z {
     z-index: -1;

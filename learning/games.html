@@ -70,35 +70,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr id="pts-10">
+                                        <tr data-points="10">
                                             <td>10</td>
                                             <td>10</td>
                                             <td>10</td>
                                             <td>10</td>
                                             <td>10</td>
                                         </tr>
-                                        <tr id="pts-20">
+                                        <tr data-points="20">
                                             <td>20</td>
                                             <td>20</td>
                                             <td>20</td>
                                             <td>20</td>
                                             <td>20</td>
                                         </tr>
-                                        <tr id="pts-30">
+                                        <tr data-points="30">
                                             <td>30</td>
                                             <td>30</td>
                                             <td>30</td>
                                             <td>30</td>
                                             <td>30</td>
                                         </tr>
-                                        <tr id="pts-40">
+                                        <tr data-points="40">
                                             <td>40</td>
                                             <td>40</td>
                                             <td>40</td>
                                             <td>40</td>
                                             <td>40</td>
                                         </tr>
-                                        <tr id="pts-50">
+                                        <tr data-points="50">
                                             <td>50</td>
                                             <td>50</td>
                                             <td>50</td>
@@ -139,19 +139,7 @@
                        
                         <!-- blur game -->
                         <div class="tab-pane fade show" id="blur" role="tabpanel" aria-labelledby="blur-tab">
-                            <p class="text-center mb-3" id="blur-notice">Unfortunately, this game is not yet compatible with small screens.</p>
-                            
-                            <p class="text-center mb-3 mx-auto w-75 lead">Can you guess which film the following still is from? Click "Start Game" to begin, and hurry, your time is running out!</p>
-                            <div class="game">
-                                <img id="blurImageContainer" src="">
-                                <button type="button" id="startButton" class="btn btn-outline-dark btn-light"">Start Game!</button>
-                                <p class="hide">Score: <span id="currentScore"></span></p>
-                            </div>
-                            <!-- fieldset is hidden until game starts -->
-                            <fieldset class="p-4 text-center hide">
-                                <input type="text" class="align-middle" name="guess" value="" id="blurGuess" required>
-                                <button type="button" class="btn btn-outline-dark btn-accent" id="guess-btn">Guess!</button>
-                            </fieldset>
+                            <p class="text-center mb-3 notice" id="blur-notice">This game has not yet been developed.</p>
                             
                         </div>
                     </div>
@@ -161,45 +149,6 @@
 
         </div>
     </div>
-
-<!-- blur game modals -->
-<!-- successful guess -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-secondary">
-                <h5 class="modal-title" id="successLabel">Success!</h5>
-            </div>
-            <div class="modal-body">
-                <!-- empty spans are filled with image info before modal opens -->
-                <p>You guessed correctly! The still is from <span id="movieStill"></span>. Your final score was <span id="finalScore"></span>.</p>
-            </div>
-            <div class="modal-footer">      
-                <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" id="ok-button" data-dismiss="modal">OK</button>              
-            </div>
-        </div>
-    </div>
-</div>
-<!-- wrong guess -->
-<div class="modal fade" id="failModal" tabindex="-1" aria-labelledby="failLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-secondary">
-                <h5 class="modal-title" id="failLabel">Wrong!</h5>
-            </div>
-            <div class="modal-body">
-                <p>Your guess is not correct. Make sure you're spelling everything correctly, and don't use any punctuation!</p>
-            </div>
-            <div class="modal-footer">     
-                 <!-- continues game  -->
-                <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" data-dismiss="modal" id="guess-again">Guess again!</button>
-                <!-- reloads window -->
-                <button type="button" class="btn mr-2 px-4 btn-primary btn-outline-secondary text-white" id="give-up">Give up.</button>                         
-            </div>
-        </div>
-    </div>
-</div>
-
 
 
   
